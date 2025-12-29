@@ -810,6 +810,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/hoist-non-react-statics@npm:^3.3.6":
+  version: 3.3.7
+  resolution: "@types/hoist-non-react-statics@npm:3.3.7"
+  dependencies:
+    hoist-non-react-statics: "npm:^3.3.0"
+  peerDependencies:
+    "@types/react": "*"
+  checksum: 10c0/ed8f4e88338f7d021d0f956adf6089d2a12b2e254a03c05292324f2e986d2376eb9efdb8a4f04596823e8fca88c9d06361d20dab4a2a00dc935fb36ac911de55
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.15":
   version: 7.0.15
   resolution: "@types/json-schema@npm:7.0.15"
@@ -1015,7 +1026,9 @@ __metadata:
     eslint-plugin-react-refresh: "npm:^0.4.24"
     globals: "npm:^16.5.0"
     react: "npm:^19.2.0"
+    react-cookie: "npm:^8.0.1"
     react-dom: "npm:^19.2.0"
+    react-router: "npm:^7.11.0"
     vite: "npm:^7.2.4"
   languageName: unknown
   linkType: soft
@@ -1047,6 +1060,13 @@ __metadata:
   version: 2.0.0
   resolution: "convert-source-map@npm:2.0.0"
   checksum: 10c0/8f2f7a27a1a011cc6cc88cc4da2d7d0cfa5ee0369508baae3d98c260bb3ac520691464e5bbe4ae7cdf09860c1d69ecc6f70c63c6e7c7f7e3f18ec08484dc7d9b
+  languageName: node
+  linkType: hard
+
+"cookie@npm:^1.0.1, cookie@npm:^1.0.2":
+  version: 1.1.1
+  resolution: "cookie@npm:1.1.1"
+  checksum: 10c0/79c4ddc0fcad9c4f045f826f42edf54bcc921a29586a4558b0898277fa89fb47be95bc384c2253f493af7b29500c830da28341274527328f18eba9f58afa112c
   languageName: node
   linkType: hard
 
@@ -1532,6 +1552,15 @@ __metadata:
   dependencies:
     hermes-estree: "npm:0.25.1"
   checksum: 10c0/3abaa4c6f1bcc25273f267297a89a4904963ea29af19b8e4f6eabe04f1c2c7e9abd7bfc4730ddb1d58f2ea04b6fee74053d8bddb5656ec6ebf6c79cc8d14202c
+  languageName: node
+  linkType: hard
+
+"hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: "npm:^16.7.0"
+  checksum: 10c0/fe0889169e845d738b59b64badf5e55fa3cf20454f9203d1eb088df322d49d4318df774828e789898dcb280e8a5521bb59b3203385662ca5e9218a6ca5820e74
   languageName: node
   linkType: hard
 
@@ -2049,6 +2078,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-cookie@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "react-cookie@npm:8.0.1"
+  dependencies:
+    "@types/hoist-non-react-statics": "npm:^3.3.6"
+    hoist-non-react-statics: "npm:^3.3.2"
+    universal-cookie: "npm:^8.0.0"
+  peerDependencies:
+    react: ">= 16.3.0"
+  checksum: 10c0/af6136c79129d7ffd78a399b169b814c5ea1f05324bfd5ca65e5361e7bdf66de7699fc6d2303641cd7d6c5cc3364b3682510a7a1bdc7f59a721afa01bf13b79f
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:^19.2.0":
   version: 19.2.3
   resolution: "react-dom@npm:19.2.3"
@@ -2060,10 +2102,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-is@npm:^16.7.0":
+  version: 16.13.1
+  resolution: "react-is@npm:16.13.1"
+  checksum: 10c0/33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:^0.18.0":
   version: 0.18.0
   resolution: "react-refresh@npm:0.18.0"
   checksum: 10c0/34a262f7fd803433a534f50deb27a148112a81adcae440c7d1cbae7ef14d21ea8f2b3d783e858cb7698968183b77755a38b4d4b5b1d79b4f4689c2f6d358fff2
+  languageName: node
+  linkType: hard
+
+"react-router@npm:^7.11.0":
+  version: 7.11.0
+  resolution: "react-router@npm:7.11.0"
+  dependencies:
+    cookie: "npm:^1.0.1"
+    set-cookie-parser: "npm:^2.6.0"
+  peerDependencies:
+    react: ">=18"
+    react-dom: ">=18"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+  checksum: 10c0/eb3693d63d1c52221a3449de5db170e2fa9e00536b011998b17f8a277f8b5e89b752d104dbbeb4ee3d474f8e4570167db00293b4510f63277e5e6658c5dab22b
   languageName: node
   linkType: hard
 
@@ -2201,6 +2266,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"set-cookie-parser@npm:^2.6.0":
+  version: 2.7.2
+  resolution: "set-cookie-parser@npm:2.7.2"
+  checksum: 10c0/4381a9eb7ee951dfe393fe7aacf76b9a3b4e93a684d2162ab35594fa4053cc82a4d7d7582bf397718012c9adcf839b8cd8f57c6c42901ea9effe33c752da4a45
+  languageName: node
+  linkType: hard
+
 "shebang-command@npm:^2.0.0":
   version: 2.0.0
   resolution: "shebang-command@npm:2.0.0"
@@ -2324,6 +2396,15 @@ __metadata:
   dependencies:
     imurmurhash: "npm:^0.1.4"
   checksum: 10c0/da7ade4cb04eb33ad0499861f82fe95ce9c7c878b7139dc54d140ecfb6a6541c18a5c8dac16188b8b379fe62c0c1f1b710814baac910cde5f4fec06212126c6a
+  languageName: node
+  linkType: hard
+
+"universal-cookie@npm:^8.0.0":
+  version: 8.0.1
+  resolution: "universal-cookie@npm:8.0.1"
+  dependencies:
+    cookie: "npm:^1.0.2"
+  checksum: 10c0/96b1f2eba8941e590892513ab3220fccad9606485452d2443f86c69388a0c663937feb386a2911d2dec5796840ae7af155c6deef8712906a931ae8a30ae93485
   languageName: node
   linkType: hard
 
