@@ -1,6 +1,7 @@
 import { useAuth } from '../hooks/useAuth';
 import './Login.css';
 
+//única función de esta pag Login: capturar datos del formulario y llamar a una función
 export const LoginPage = () => {
     const { handleLogin, error } = useAuth();
 

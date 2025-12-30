@@ -6,7 +6,7 @@ import { UserContext } from '../context/UserContext';
 export const useAuth = () => {
     // Consumir el "Estado Global" desde el Contexto
     const { login, logout, user, role, error, setError } = useContext(UserContext);
-    
+
     const navigate = useNavigate();
 
     // Función para manejar el inicio de sesión
@@ -20,7 +20,7 @@ export const useAuth = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(datosFormulario),
                 // PERMITIR COOKIES: para que el navegador guarde token HttpOnly
-                credentials: 'include' 
+                credentials: 'include'
             });
 
             const data = await respuesta.json();
@@ -46,12 +46,43 @@ export const useAuth = () => {
         }
     };
 
-    //retornar solo lo que los componentes necesitan usar
+    // Función para manejar el Registro nuevo user
+    const handleRegister = async (datosRegistro) => {
+        setError(null); // Limpiamos errores previos
+
+        try {
+            const respuesta = await fetch('http://localhost:4000/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                // Enviamos nombre, email, password y tlfn
+                body: JSON.stringify(datosRegistro)
+            });
+
+            const data = await respuesta.json();
+
+            if (respuesta.ok) {
+                // Si el registro es exitoso, redirigir al login 
+                console.log("---¡Nuevo usuario registrado correctamente!---");
+                navigate('/login');
+            } else {
+                // Si el backend devuelve un error (por ej si email ya existe), lo capturamos
+                setError(data.msg || "Error al crear la cuenta");
+            }
+        } catch (err) {
+            setError("No se pudo conectar con el servidor");
+        }
+    };
+
     return {
-        user,
-        role,
-        error,
+        // Estados
+        user, //Para que el Dashboard sepa que mostrar
+        role, //Para que el Dashboard sepa que mostrar
+        error, //Para que Login y Registro puedan mostrar mensajes rojos si algo falla
+        //Funciones = acciones
         handleLogin,
+        handleRegister,
         logout
     };
 };
