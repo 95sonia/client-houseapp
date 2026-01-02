@@ -10,9 +10,7 @@ function App() {
     <>
       <h1>WEB ALQUILER VACACIONAL</h1>
       <Header />
-      <main>
         <AppRoutes />
-      </main>
       <Footer />
     </>
   )

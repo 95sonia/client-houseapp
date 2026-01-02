@@ -1,0 +1,148 @@
+//Los colores deberían ir en un archivo a parte de 'VARIABLES DE ESTILO':  _variables.scss
+
+$color-menta: #26f0c5;
+$color-negro: #1a1a1a;
+$color-bg: #f8f9fa;
+$color-text-muted: #717171;
+$color-error: #ff4d4d;
+$radius-xl: 32px;
+$radius-md: 16px;
+$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
+//@import './variables';
+
+// Clase base para las pantallas de Auth
+.auth-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-bg;
+    padding: 20px;
+    font-family: 'Inter', sans-serif;
+
+    .auth-card {
+        background: white;
+        display: flex;
+        flex-direction: column; // Móvil: imagen arriba, form abajo
+        width: 100%;
+        max-width: 450px;
+        border-radius: $radius-xl;
+        overflow: hidden; // Para que la imagen respete el redondeado de la tarjeta
+        box-shadow: $shadow-soft;
+
+        // --- NUEVA SECCIÓN PARA LA IMAGEN ---
+        .auth-image {
+            width: 100%;
+            height: 200px; // Altura fija en móvil para que no sea gigante
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; // Importante para las URLs de imagen 
+            }
+        }
+
+        // --- EL CONTENIDO DEL FORMULARIO ---
+        .auth-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+
+            h1 {
+                font-size: 1.8rem;
+                font-weight: 800;
+                color: $color-negro;
+                margin-bottom: 4px;
+                letter-spacing: -1px;
+            }
+
+            p {
+                color: $color-text-muted;
+                font-size: 0.9rem;
+                margin-bottom: 24px;
+            }
+
+            .authForm {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    font-size: 0.85rem;
+                    font-weight: 700;
+                    margin-bottom: 6px;
+                    color: $color-negro;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 14px;
+                    margin-bottom: 20px;
+                    border: 1px solid #e0e0e0;
+                    border-radius: $radius-md;
+                    background-color: #fcfcfc;
+                    font-size: 1rem;
+                    transition: all 0.3s ease;
+
+                    &:focus {
+                        outline: none;
+                        border-color: $color-menta;
+                        background-color: white;
+                        box-shadow: 0 0 0 4px rgba($color-menta, 0.1);
+                    }
+                }
+
+                .error-msg {
+                    color: $color-error;
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    background: rgba($color-error, 0.1);
+                    padding: 10px;
+                    border-radius: 8px;
+                    margin-bottom: 16px;
+                    text-align: center;
+                }
+
+                .btn,
+                .btn-submit {
+                    width: 100%;
+                    padding: 16px;
+                    background-color: $color-menta;
+                    color: $color-negro;
+                    border: none;
+                    border-radius: $radius-md;
+                    font-size: 1rem;
+                    font-weight: 800;
+                    cursor: pointer;
+                    transition: transform 0.2s ease, filter 0.2s ease;
+
+                    &:hover {
+                        filter: brightness(1.05);
+                        transform: translateY(-2px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// --- CONFIGURACIÓN PARA MODO ORDENADOR ---
+@media (min-width: 1024px) {
+    .auth-page-wrapper {
+        .auth-card {
+            flex-direction: row; // Imagen a la izquierda, form a la derecha
+            max-width: 900px; // Más ancho en desktop
+            min-height: 550px;
+
+            .auth-image {
+                flex: 1; // Ocupa el 50%
+                height: auto; // Que crezca según el formulario
+            }
+
+            .auth-content {
+                flex: 1; // Ocupa el otro 50%
+                padding: 50px;
+                justify-content: center;
+            }
+        }
+    }
+}

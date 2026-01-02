@@ -1,0 +1,132 @@
+//Los colores deberían ir en un archivo a parte de 'VARIABLES DE ESTILO':  _variables.scss
+
+$color-menta: #26f0c5;
+$color-negro: #1a1a1a;
+$color-bg: #f8f9fa;
+$color-text-muted: #717171;
+$color-error: #ff4d4d;
+$radius-xl: 32px; 
+$radius-md: 16px;
+$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
+
+//@import './variables';
+
+// --- CONFIGURACIÓN BASE (MOBILE FIRST) ---
+.home-container {
+  background-color: $color-bg;
+  min-height: 100vh;
+  padding: 16px; // Espacio pequeño en móviles
+  font-family: 'Inter', sans-serif;
+
+  .home-header {
+    margin-bottom: 24px;
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      span { color: $color-menta; }
+    }
+  }
+
+  // Filtros con scroll horizontal en móvil
+  .filters-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    &::-webkit-scrollbar { display: none; } // Ocultar barra scroll
+
+    .filter-btn {
+      white-space: nowrap;
+      padding: 8px 20px;
+      border-radius: 20px;
+      border: 1px solid #e0e0e0;
+      background: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      
+      &.active {
+        background: $color-negro;
+        color: white;
+      }
+    }
+  }
+
+  // Grid: 1 columna por defecto (móvil)
+  .properties-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 24px;
+  }
+
+  // Tarjeta de Propiedad
+  .property-card {
+    background: white;
+    border-radius: $radius-xl;
+    overflow: hidden;
+    box-shadow: $shadow-soft;
+
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 220px; // Altura fija para consistencia [cite: 2025-11-29]
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // Ajusta la URL de la imagen sin deformar [cite: 2025-11-29]
+      }
+
+      .heart-badge {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 8px;
+        border-radius: 50%;
+        backdrop-filter: blur(4px);
+      }
+    }
+
+    .property-details {
+      padding: 16px;
+      .card-main-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        .title { font-weight: 700; font-size: 1rem; }
+        .price { font-weight: 800; span { font-weight: 400; color: $color-text-muted; } }
+      }
+      .location { color: $color-text-muted; font-size: 0.85rem; margin: 4px 0 12px; }
+    }
+  }
+}
+
+// --- CONFIGURACIÓN DESKTOP (PANTALLAS GRANDES) ---
+@media (min-width: 1024px) {
+  .home-container {
+    padding: 40px 60px;
+    max-width: 1300px;
+    margin: 0 auto;
+
+    .home-header h1 { font-size: 3rem; }
+
+    .properties-grid {
+      // 4 columnas en desktop para que las fotos sean pequeñas
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 38px;
+    }
+
+    .property-card {
+      .image-wrapper {
+        height: 180px; // Reducimos un poco la altura en desktop para que se vean compactas
+      }
+      
+      &:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+      }
+    }
+  }
+}

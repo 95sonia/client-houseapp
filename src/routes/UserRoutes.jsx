@@ -1,9 +1,12 @@
-import { Route } from 'react-router';
-import { ProtectedRoute } from './ProtectedRoute';
-import {UserDashboardPage} from '../pages/user/UserDashboardPage';
+import { Routes, Route, Navigate } from 'react-router';
+import { UserDashboardPage } from '../pages/user/UserDashboardPage';
 
 
 export const UserRoutes = () => {
-
-        <Route path='/user/dashboard' element={<UserDashboardPage />} />
+        return (
+                <Routes>
+                        <Route path='dashboard' element={<UserDashboardPage />} />
+                        <Route path="*" element={<Navigate to="dashboard" />} />
+                </Routes>
+        )
 }

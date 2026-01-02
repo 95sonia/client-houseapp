@@ -8,6 +8,7 @@ import { UserContext } from "./UserContext";
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // ----FUNCIÓN REVALIDAR TOKEN------- (para no tener que volver a logearse al refrescar la pag)
     const revalidarToken = async () => {
@@ -22,12 +23,16 @@ export const UserProvider = ({ children }) => {
 
             if (resp.ok) {
                 setUser(data.user); // Recuperamos nombre, rol y tfono 
+
             } else {
                 setUser(null);
             }
         } catch (error) {
             console.error("Error al revalidar sesión", error);
             setUser(null);
+        } finally {
+            // Forzar el apagado del loading para que Login pueda intentarse
+            setLoading(false);
         }
     };
 
@@ -40,11 +45,13 @@ export const UserProvider = ({ children }) => {
     const login = (userData) => {
         setUser(userData);
         setError(null);
+        setLoading(false);
     };
 
     // ----FUNCIÓN CERRAR SESIÓN------
     const logout = () => {
         setUser(null);
+        setLoading(false);
         // Aquí podría añadir lógica para borrar cookie si back no lo hace
         // Para borrar una cookie HttpOnly, normalmente hay que llamar a una ruta del backend
         // Pero en el front, simplemente limpiamos el estado del usuario
@@ -55,6 +62,7 @@ export const UserProvider = ({ children }) => {
             user,
             role: user?.role, // Extraemos el rol que viene del modelo de Mongoose
             error,
+            loading,
             login,
             logout,
             setError
