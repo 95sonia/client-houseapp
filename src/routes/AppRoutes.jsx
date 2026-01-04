@@ -3,6 +3,7 @@ import { PublicRoutes } from './PublicRoutes';
 import { UserRoutes } from './UserRoutes';
 import { AdminRoutes } from './AdminRoutes';
 import { ProtectedRoute } from './ProtectedRoute';
+import { AdminProvider } from '../context/AdminProvider';
 
 export const AppRoutes = () => {
     return (
@@ -13,7 +14,9 @@ export const AppRoutes = () => {
 
                 {/* Rutas Protegidas admin*/}
                 <Route path="/admin/*" element={<ProtectedRoute allowedRoles={['admin']}>
-                    <AdminRoutes />
+                    <AdminProvider>
+                        <AdminRoutes />
+                    </AdminProvider>
                 </ProtectedRoute>
                 } />
 

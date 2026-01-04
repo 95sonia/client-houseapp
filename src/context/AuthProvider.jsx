@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { UserContext } from "./UserContext";
+import { AuthContext } from "./AuthContext";
 
 //crear el Proveedor. Su funcion: dar información -> aqui se exponen los datos que queremos compartir a los consumers
 //La información que quiero pasar a los hijos es el ususario y el rol - para que me permita entrar a ciertas pags
 // (Contexto): Guarda al usuario en su "memoria" (state) para que el Navbar sepa quién eres.
 
-export const UserProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -58,7 +58,7 @@ export const UserProvider = ({ children }) => {
     };
 
     return (
-        <UserContext.Provider value={{
+        <AuthContext.Provider value={{
             user,
             role: user?.role, // Extraemos el rol que viene del modelo de Mongoose
             error,
@@ -68,6 +68,6 @@ export const UserProvider = ({ children }) => {
             setError
         }}>
             {children}
-        </UserContext.Provider>
+        </AuthContext.Provider>
     );
 };

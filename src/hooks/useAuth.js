@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useNavigate } from 'react-router';
-import { UserContext } from '../context/UserContext';
+import { AuthContext } from '../context/AuthContext';
 
 //Hook que hace el fetch, recibe al usuario y le dice al UserProvider que lo guarde
 export const useAuth = () => {
     // Consumir el "Estado Global" desde el Contexto
-    const { login, logout, user, role, error, setError } = useContext(UserContext);
+    const { login, logout, user, role, error, setError } = useContext(AuthContext);
     const navigate = useNavigate();
 
     // Función para manejar el inicio de sesión

@@ -1,5 +1,5 @@
 import { useAuth } from '../hooks/useAuth';
-import './Auth.scss';
+import '../styles/Auth.scss';
 
 export const RegisterPage = () => {
     const { handleRegister, error } = useAuth();

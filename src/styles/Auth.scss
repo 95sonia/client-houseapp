@@ -1,14 +1,4 @@
-//Los colores deberían ir en un archivo a parte de 'VARIABLES DE ESTILO':  _variables.scss
-
-$color-menta: #26f0c5;
-$color-negro: #1a1a1a;
-$color-bg: #f8f9fa;
-$color-text-muted: #717171;
-$color-error: #ff4d4d;
-$radius-xl: 32px;
-$radius-md: 16px;
-$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
-//@import './variables';
+@import './variables';
 
 // Clase base para las pantallas de Auth
 .auth-page-wrapper {

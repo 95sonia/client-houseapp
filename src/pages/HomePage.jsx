@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Home.scss';
+import '../styles/Home.scss';
 
 export const HomePage = () => {
   const [houses] = useState([
@@ -17,7 +17,7 @@ export const HomePage = () => {
       _id: "2",
       title: "Forest Retreat",
       location: "Lake Tahoe, NV",
-      price: 295,
+      price: 250,
       rating: 4.85,
       category: "Cabins",
       representativeImage: "https://images.unsplash.com/photo-1449156730764-d6a6d1f9d6b1?q=80&w=2070&auto=format&fit=crop",
@@ -66,7 +66,7 @@ export const HomePage = () => {
         </h1>
       </header>
 
-      {/* BARRA DE FILTROS ESTILO LUXESTAY */}
+      {/* BARRA DE FILTROS */}
       <section className="filters-container">
         {['All Stays', 'Beachfront', 'Cabins'].map(cat => (
           <button
@@ -85,7 +85,7 @@ export const HomePage = () => {
           .map((house) => (
             <article key={house._id} className="property-card">
               <div className="image-wrapper">
-                {/* Simulamos la URL que Multer guardará en el futuro */}
+                {/* Simulamos URL que Multer guardará en el futuro */}
                 <img src={house.representativeImage} alt={house.title} />
                 <div className="heart-badge">❤</div>
                 <div className="rating-tag">★ {house.rating}</div>
