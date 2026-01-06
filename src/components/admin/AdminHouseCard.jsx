@@ -1,15 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { Edit, Trash2, Calendar, MapPin } from 'lucide-react';
 
-export const AdminHouseCard = ({ house }) => {
+export const AdminHouseCard = ({ house, onDelete  }) => {
+
+// 1. Creamos la función de confirmación
+    const handleConfirmDelete = () => {
+        const mensaje = '¿Seguro que quieres eliminar la vivienda?';
+        
+        if (window.confirm(mensaje)) {
+            // Si acepta, llamamos a la prop original
+            onDelete(house._id);
+        }
+        // Si cancela, no hacemos nada y la casa se queda ahí
+    };
+
     return (
         <article className="house-item">
             <div className="img-container">
-
                 <img src={house.imagenPrincipal} alt={house.titulo} />
-                <button className="edit-overlay" title="Editar vivienda">
-                    <Edit size={20} />
-                </button>
+
+                {/* Botón editar */}
+                <Link to={`/admin/editHouse/${house._id}`} className="edit-overlay btn-edit-icon">
+                    <Edit size={16} />
+                </Link>
             </div>
 
             <div className="house-info">
@@ -27,7 +41,7 @@ export const AdminHouseCard = ({ house }) => {
                         <Calendar size={16} />
                         <span>Reservas</span>
                     </button>
-                    <button className="btn-delete" title="Eliminar">
+                    <button className="btn-delete" title="Eliminar" onClick={handleConfirmDelete}>
                         <Trash2 size={20} />
                     </button>
                 </div>

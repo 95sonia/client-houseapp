@@ -63,7 +63,6 @@ export const AdminNavbar = () => {
             <div className="nav-right">
                 <button className="nav-icon-btn"><User size={20} /></button>
                 <button className="nav-icon-btn"><Settings size={20} /></button>
-                <button className="nav-icon-btn"><LogOut size={20} /></button>
                 <button className="nav-mobile-menu"><Menu size={24} /></button>
                 <button className="btn-logout" title="Cerrar Sesión"><LogOut size={20} /></button>
             </div>

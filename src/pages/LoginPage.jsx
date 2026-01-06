@@ -41,7 +41,6 @@ export const LoginPage = () => {
                     <p className="auth-footer">
                         ¿No tienes cuenta? <a href="/register">Regístrate</a>
                     </p>
-
                 </section>
 
                 <div className="auth-image">
