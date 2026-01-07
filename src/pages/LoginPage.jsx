@@ -23,7 +23,6 @@ export const LoginPage = () => {
 
                 <section className="auth-content">
                     <h1>Iniciar Sesión</h1>
-                    <p>Bienvenido de nuevo a HouseApp</p>
 
                     <form onSubmit={handleSubmit} className="authForm">
                         <label htmlFor="email">Email</label>
@@ -32,7 +31,7 @@ export const LoginPage = () => {
                         <label htmlFor="password">Contraseña</label>
                         <input type="password" id="password" name="password" required />
 
-                        {/* Solo se muestra si el Hook detecta un error del backend */}
+                        {/* Solo se muestra si Hook detecta un error del backend */}
                         {error && <p className="error-msg">{error}</p>}
 
                         <button type="submit" className="btn">Entrar</button>

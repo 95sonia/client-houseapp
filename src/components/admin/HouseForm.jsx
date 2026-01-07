@@ -29,14 +29,18 @@ export const HouseForm = ({ initialData = {}, onSubmit, buttonText }) => {
         setExistingImages(existingImages.filter(url => url !== urlToRemove));
     };
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const handleChange = (ev) => {
+        setFormData({ ...formData, [ev.target.name]: ev.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async (ev) => {
+        ev.preventDefault();
         // Mandamos los textos (incluyendo las URLs antiguas) y los archivos nuevos
-        onSubmit({ ...formData, imagenesRestantes: existingImages }, files);
+        const exito = await onSubmit({ ...formData, imagenesRestantes: existingImages }, files);
+       if (exito) {
+        console.log("Formulario enviado con éxito");
+
+    }
     };
 
     return (
@@ -100,7 +104,7 @@ export const HouseForm = ({ initialData = {}, onSubmit, buttonText }) => {
                 <ul className="files-list">
                     {files.map((file, i) => (
                         <li key={i}>
-                            ✨ {file.name}
+                             {file.name}
                             <button type="button" onClick={() => setFiles(files.filter((_, idx) => idx !== i))}>x</button>
                         </li>
                     ))}

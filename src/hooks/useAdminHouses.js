@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import toast from 'react-hot-toast';
 
 export const useAdminHouses = () => {
     const [loading, setLoading] = useState(false); // Mientras sube fotos pone Cargando..."
     const [error, setError] = useState(null);
-    const navigate = useNavigate();
 
     // FUNCIÓN PARA CREAR (POST)
     const createHouse = async (formData, selectedFiles) => {
@@ -30,20 +28,28 @@ export const useAdminHouses = () => {
         });
 
         try {
-            const res = await fetch('http://localhost:4001/api/admin/createHouse', {
+            const respuesta = await fetch('http://localhost:4001/api/admin/createHouse', {
                 method: 'POST',
                 body: data,
                 credentials: 'include' // Para que Back sepa quien eres (por la cookie)
             });
 
-            if (res.ok) {
-                // navigate('/admin/dashboard'); 
+            const respuestaData = await respuesta.json();
+
+            if (respuesta.ok) {
+                toast.success('¡Vivienda creada correctamente!');
                 return true;
+
+            } else { // Aquí cogemos el error enviado desde el back
+                const errorMsg = respuestaData.msg || "Error al crear la vivienda";
+                toast.error(errorMsg); // Muestra el mnsje del check específico
+                return false;
             }
 
         } catch (error) {
             console.log(error);
             setError("Error de conexión al crear la vivienda");
+            toast.error("Error de conexión");
 
         } finally {
             setLoading(false);
@@ -52,6 +58,7 @@ export const useAdminHouses = () => {
 
     // FUNCIÓN PARA ELIMINAR (DELETE)
     const deleteHouse = async (id) => {
+        setLoading(true);
         try {
             const respuesta = await fetch(`http://localhost:4001/api/admin/deleteHouse/${id}`, {
                 method: 'DELETE',
@@ -72,6 +79,9 @@ export const useAdminHouses = () => {
             toast.error('Fallo de conexión. Revisa el servidor');
             console.error("Error al borrar", error);
             return false;
+
+        } finally {
+            setLoading(false); // bloque finally se ejecuta siempre al acabar
         }
     };
 
@@ -99,16 +109,29 @@ export const useAdminHouses = () => {
         }
 
         try {
-            const res = await fetch(`http://localhost:4001/api/admin/editHouse/${id}`, {
+            const respuesta = await fetch(`http://localhost:4001/api/admin/editHouse/${id}`, {
                 method: 'PUT',
                 body: data,
                 credentials: 'include'
             });
 
-            if (res.ok) return true;
+            const respuestaData = await respuesta.json(); // Leemos la respuesta del back
+
+            if (respuesta.ok) {
+                toast.success('Vivienda actualizada correctamente');
+                return true;
+            } else {
+                // Checks del backend
+                const errorMsg = respuestaData.msg || "Error al editar la vivienda";
+                toast.error(errorMsg);
+                setError(errorMsg);
+                return false;
+            }
 
         } catch (err) {
-            setError("Error al editar la vivienda");
+            setError("Error de conexión al editar la vivienda");
+            toast.error("Error de conexión");
+            return false;
 
         } finally {
             setLoading(false);
