@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { PublicContext } from '../context/PublicContext';
 import { PublicHouseCard } from '../components/PublicHouseCard';
+import { NavPublic } from '../components/NavPublic';
 
 
 export const HomePage = () => {
@@ -11,16 +12,19 @@ export const HomePage = () => {
     if (loading) return <div className="loading">Cargando destinos...</div>;
 
     return (
-        <main className="home-container">
-            <header className="home-header">
-                <h1>Descubre tu <br /> <span>próximo destino</span></h1>
-            </header>
+        <>
+            <NavPublic />
+            <main className="home-container">
+                <header className="home-header">
+                    <h1>Descubre tu <br /> <span>próximo destino</span></h1>
+                </header>
 
-            <section className="houses-grid">
-                {houses.map(house => (
-                    <PublicHouseCard key={house._id} house={house} />
-                ))}
-            </section>
-        </main>
+                <section className="houses-grid">
+                    {houses.map(house => (
+                        <PublicHouseCard key={house._id} house={house} />
+                    ))}
+                </section>
+            </main>
+        </>
     );
 };

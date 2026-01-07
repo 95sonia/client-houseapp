@@ -9,6 +9,9 @@ export const AppRoutes = () => {
     return (
         <>
             <Routes>
+                {/*Si entran a la raíz, redirigimos a /home */}
+                <Route path="/" element={<Navigate to="/home" replace />} />
+
                 {/* Rutas Públicas usamos /* para indicar que dentro de PublicRoutes hay más rutas definidas */}
                 <Route path="/*" element={<PublicRoutes />} />
 
@@ -27,7 +30,7 @@ export const AppRoutes = () => {
                 } />
 
                 {/* Ruta por defecto -> Si no encuentra ruta, mandar a Inicio */}
-                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="*" element={<Navigate to="/home" />} />
             </Routes>
 
         </>

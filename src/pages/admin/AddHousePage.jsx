@@ -33,7 +33,7 @@ export const AddHousePage = () => {
                 </header>
 
                 <main className="form-content">
-                    {/* Si el hook está trabajando, mostramos un mensaje */}
+                    {/* Si el hook está trabajando, mostramos mnsje */}
                     {loading && (
                         <div className="loading-state">
                             <p>Subiendo imágenes... Por favor, espera.</p>

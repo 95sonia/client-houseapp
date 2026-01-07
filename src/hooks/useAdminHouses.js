@@ -2,7 +2,7 @@ import { useState } from 'react';
 import toast from 'react-hot-toast';
 
 export const useAdminHouses = () => {
-    const [loading, setLoading] = useState(false); // Mientras sube fotos pone Cargando..."
+    const [loading, setLoading] = useState(false); // Mientras sube fotos xej pone Cargando..."
     const [error, setError] = useState(null);
 
     // FUNCIÓN PARA CREAR (POST)

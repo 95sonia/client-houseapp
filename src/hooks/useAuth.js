@@ -66,10 +66,8 @@ export const useAuth = () => {
                 console.log("---¡Nuevo usuario registrado correctamente!---");
                 navigate('/login');
             } else {
-                // Si el backend devuelve un error (por ej si email ya existe), lo capturamos
-                //setError(data.msg || "Error al crear la cuenta");
                 if (data.errors) {
-                    // Convertimos el objeto { nombre: {msg:...}, email: {msg:...} } en una lista
+                    // Convertimos el objeto { nombre: {msg:...}...} en una lista
                     const listaErrores = Object.values(data.errors);
                     // Mostramos el primer mensaje de la lista 
                     setError(listaErrores[0].msg);
@@ -83,13 +81,18 @@ export const useAuth = () => {
         }
     };
 
+    const handleLogout = async () => {
+        await logout(); // Esperar a que el provider borre user y cookie
+        navigate('/home');  // Redireccionar a home publica despues del logout
+    };
+
     return {
         // Estados
         user, //Para que el Dashboard sepa que mostrar
         role, //Para que el Dashboard sepa que mostrar
         error, //Para que Login y Registro puedan mostrar mensajes rojos si algo falla
-        handleLogin,
+        handleLogin, //Funciones
         handleRegister,
-        logout
+        handleLogout
     };
 };

@@ -1,0 +1,85 @@
+@import './variables';
+
+.user-navbar {
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    box-shadow: $shadow;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    .nav-container {
+        width: 90%;
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-decoration: none;
+        color: $color-negro;
+
+        span {
+            color: $color-menta;
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: $color-negro;
+            font-weight: 500;
+            transition: color 0.3s;
+
+            &:hover {
+                color: $color-menta;
+            }
+        }
+    }
+
+    .nav-user-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        border-left: 1px solid #eee;
+        padding-left: 1.5rem;
+
+        .perfil-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: $color-negro;
+            font-weight: 600;
+        }
+
+        .btn-logout {
+            background: none;
+            border: none;
+            color: $color-error;
+            cursor: pointer;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

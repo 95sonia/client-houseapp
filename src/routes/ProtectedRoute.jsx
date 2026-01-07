@@ -2,24 +2,21 @@
     import { useContext } from "react";
     import { AuthContext } from "../context/AuthContext";
 
-
     export const ProtectedRoute = ({ allowedRoles, children }) => {
 
         const { user, role, loading } = useContext(AuthContext);
         console.log("Roles permitidos (desde front):", allowedRoles);
 
-        if (loading) return <div>Cargando...</div>; // evita que el usuario vea un salto al login mientras el UserProvider recupera los datos
+        if (loading) return <p>Cargando...</p>; // evita que el usuario vea un salto al login mientras el UserProvider recupera los datos
 
         // Si no hay usuario (no hay token válido en la cookie), ir a login (si user existe, es porque hay token válido en la cookie)
         if (!user) {
             return <Navigate to="/login" replace />;
         }
-
         // Si hay roles definidos y usuario no tiene el permiso, ir a inicio
         if (allowedRoles && !allowedRoles.includes(role)) {
             return <Navigate to="/" replace />;
         }
-
         // Si está autenticado y rol es correcto, -> puede pasar a las sigs rutas, 
         // Si hay hijos directos los renderizamos, si es una ruta anidada renderizar outlet
         return children ? children : <Outlet />;

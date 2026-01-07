@@ -1,0 +1,192 @@
+@import './variables';
+
+.dashboard-user {
+    background-color: $bg-light;
+    min-height: 100vh;
+    padding: 2rem;
+
+    .houses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    //ESTILOS BUSCADOR Y TITULO DE LA PAG
+    .dashboard-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+
+        h2 {
+            font-size: 1.6rem;
+            color: $color-negro;
+            font-weight: 700;
+        }
+
+        .buscador-contenedor {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+
+            .icono-lupa {
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #94a3b8;
+            }
+
+            input {
+                width: 100%;
+                padding: 0.8rem 1rem 0.8rem 2.7rem;
+                border: 1px solid #e2e8f0;
+                border-radius: $radius-md;
+                background-color: white;
+                box-shadow: $shadow-soft;
+                outline: none;
+                font-size: 1rem;
+                transition: border-color 0.2s;
+
+                &:focus {
+                    border-color: $color-menta;
+                }
+            }
+        }
+    }
+}
+
+// Estilo Tarjeta HouseCard
+.house-item {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: $shadow;
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    }
+
+    .img-container {
+        position: relative;
+        height: 200px;
+        width: 100%;
+        background-color: #e2e8f0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        // BOTÓN FAVORITOS
+        .capa-favorito {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: $shadow;
+            color: #64748b;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            &.active {
+                color: $color-error;
+                background: white;
+
+                svg {
+            fill: $color-error; // Rellena el icono de Lucide
+        }
+            }
+        }
+    }
+
+    .house-info {
+        padding: 1.5rem;
+
+        h3 {
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+            font-size: 1.25rem;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: $color-text-muted;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #1e293b;
+
+            span {
+                font-size: 0.8rem;
+                color: $color-text-muted;
+                font-weight: normal;
+            }
+        }
+
+        // ACCIONES DE USUARIO: RESERVAR Y DETALLE 
+        .user-actions {
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1rem;
+
+            .btn-detail,
+            .btn-reserve {
+                text-decoration: none;
+                padding: 0.6rem 1rem;
+                border-radius: $radius-md;
+                font-size: 0.9rem;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                flex: 1;
+                transition: all 0.2s;
+            }
+
+            .btn-detail {
+                background-color: $bg-light;
+                color: #1e293b;
+                border: 1px solid #e2e8f0;
+
+                &:hover {
+                    background-color: #e2e8f0;
+                }
+            }
+
+            .btn-reserve {
+                background-color: $color-menta;
+                color: $color-negro;
+                border: none;
+
+                &:hover {
+                    background-color: darken($color-menta, 5%);
+                    transform: translateY(-1px);
+                }
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@ import { RegisterPage } from '../pages/RegisterPage';
 export const PublicRoutes = () => {
     return (
         <Routes>
-            <Route path='/' element={<HomePage />} />
+            <Route path='/home' element={<HomePage />} />
             <Route path='login' element={<LoginPage />} />
             <Route path='register' element={<RegisterPage />} />
         </Routes>

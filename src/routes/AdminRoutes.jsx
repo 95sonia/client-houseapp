@@ -2,23 +2,24 @@ import { Route, Routes, Navigate } from 'react-router';
 import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage';
 import { AddHousePage } from '../pages/admin/AddHousePage';
 import { EditHousePage } from '../pages/admin/EditHousePage';
-// import { ReservasPage } from '../pages/admin/ReservasPage';
+import { AdminReservasPage } from '../pages/admin/AdminReservasPage';
 
 export const AdminRoutes = () => {
     return (
         <Routes>
-            {/* Ruta panel principal /admin/dashboard */}
+            {/* Panel principal /admin/dashboard */}
             <Route path="dashboard" element={<AdminDashboardPage />} />
 
-            {/*Añadir casa /admin/create-house */}
-            {/* Aquí es donde usaremos Multer para el array de imágenes*/}
+            {/*Añadir casa /admin/createHouse */}
             <Route path="createHouse" element={<AddHousePage />} />
 
-            {/*Editar casa /admin/edit-house/:id */}
+            {/*Editar casa /admin/editHouse/:id */}
             <Route path="editHouse/:id" element={<EditHousePage />} />
 
-            {/*Gestión de Reservas  /admin/reservas */}
-            <Route path="reservas" element={<div>Vista Reservas</div>} />
+            {/*Gestión de Reservas /admin/reservas */}
+            <Route path="reservas" element={<AdminReservasPage />} />
+
+            {/* -----------------FALTA LA RUTA DE Gestión de USUARIOS ----------------------*/}
 
             {/* para rutas de admin no encontradas */}
             <Route path="*" element={<Navigate to="dashboard" />} />
