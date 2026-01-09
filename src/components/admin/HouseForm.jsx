@@ -93,7 +93,7 @@ export const HouseForm = ({ initialData = {}, onSubmit, buttonText }) => {
                     ))}
                 </div>
 
-                {/* --- DROPZONE PARA NUEVAS --- */}
+                {/* --- DROPZONE para subir nuevas fotos--- */}
                 <label>Añadir fotos nuevas:</label>
                 <div {...getRootProps()} className="dropzone-area">
                     <input {...getInputProps()} />

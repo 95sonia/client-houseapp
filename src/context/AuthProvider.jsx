@@ -13,10 +13,10 @@ export const AuthProvider = ({ children }) => {
     // ----FUNCIÓN REVALIDAR TOKEN------- (para no tener que volver a logearse al refrescar la pag)
     const revalidarToken = async () => {
         try {
-            const resp = await fetch('http://localhost:4001/api/renew', {
+            const resp = await fetch('http://localhost:4001/renew', {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include' // Imprescindible para cookies HttpOnly 
+                credentials: 'include' // para cookies HttpOnly 
             });
 
             const data = await resp.json();

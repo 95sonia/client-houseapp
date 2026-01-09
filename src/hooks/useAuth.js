@@ -13,7 +13,7 @@ export const useAuth = () => {
         setError(null);// Limpiamos errores previos antes de intentar loguear
 
         try {
-            const respuesta = await fetch('http://localhost:4001/api/login', {
+            const respuesta = await fetch('http://localhost:4001/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(datosFormulario),
@@ -50,7 +50,7 @@ export const useAuth = () => {
         setError(null); // Limpiamos errores previos
 
         try {
-            const respuesta = await fetch('http://localhost:4001/api/register', {
+            const respuesta = await fetch('http://localhost:4001/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

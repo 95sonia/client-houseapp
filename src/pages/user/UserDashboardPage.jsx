@@ -5,12 +5,14 @@ import { useUserHouses } from '../../hooks/useUserHouses';
 import { UserHouseCard } from '../../components/user/UserHouseCard';
 import { Search } from 'lucide-react';
 
+const apiUrl = import.meta.env.VITE_API_URL_BASE;
+
 export const UserDashboardPage = () => {
     // Estado para el buscador
     const [busqueda, setBusqueda] = useState('');
 
     // Traer las casas usando useFetch (hook reutilizable)
-    const { data, loading, consultaFetch } = useFetch('http://localhost:4001/api/user/dashboard');
+    const { data, loading, consultaFetch } = useFetch(`${apiUrl}/user/dashboard`);
     const { addFavorito, deleteFavorito } = useUserHouses();
 
     const handleFavoritos = async (id, estaEnFavoritos) => {
@@ -18,13 +20,13 @@ export const UserDashboardPage = () => {
         const exito = estaEnFavoritos ? await deleteFavorito(id) : await addFavorito(id);
 
         if (exito) {
-            consultaFetch(); // Refrescar datos para corazón cambie de color
+            consultaFetch(`${apiUrl}/user/dashboard`, 'GET'); // Refrescar datos para corazón cambie de color
         }
     };
 
     if (loading) return <p>Cargando viviendas...</p>;
 
-    // Lógica del FILTRO 
+    // Lógica del FILTRO (includes busca si string está dentro, devuelve true o false)
     const viviendasFiltradas = data?.data?.filter(house =>
         house.ubicacion.toLowerCase().includes(busqueda.toLowerCase()) ||
         house.titulo.toLowerCase().includes(busqueda.toLowerCase())

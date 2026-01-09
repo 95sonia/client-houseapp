@@ -8,21 +8,21 @@ import { PlusCircle } from 'lucide-react';
 import { useAdminHouses } from '../../hooks/useAdminHouses';
 
 export const AdminDashboardPage = () => {
-    const { houses, loading, consultaFetch, error } = useContext(AdminContext);
+    const { houses, loading, refreshHouses, error } = useContext(AdminContext);
 
     // Traer la fción de borrar del hook
     const { deleteHouse } = useAdminHouses();
 
     //carga los datos al entrar
     useEffect(() => {
-        consultaFetch();
-    }, []); // Los corchetes vacíos aseguran que solo se ejecute al cargar la pág
+        refreshHouses();
+    }, []); // Corchetes vacíos aseguran que solo se ejecute al cargar la pág
 
     const handleEliminar = async (id) => {
         const ok = await deleteHouse(id);
         if (ok) {
-            // llamar al servidor para traer la lista de casas nueva
-            consultaFetch();
+            // DESPUES DE ELIMINAR llamar servidor para traer nueva lista de casas
+            refreshHouses();
         }
     };
 

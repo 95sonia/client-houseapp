@@ -8,7 +8,7 @@ import { AdminNavbar } from '../../components/admin/AdminNavbar';
 export const AddHousePage = () => {
     // Traer la herramienta de crear y el estado de carga
     const { createHouse, loading } = useAdminHouses();
-    const { consultaFetch } = useContext(AdminContext);
+    const { refreshHouses } = useContext(AdminContext);
     const navigate = useNavigate();
 
     // Esta fción recibe los datos del formulario y las fotos
@@ -18,7 +18,7 @@ export const AddHousePage = () => {
         // si ha salido bien, refrescamos y volvemos al dashboard
         //si algo falla nos quedamos en el formulario
         if (exito) {
-            await consultaFetch();
+            refreshHouses();
             navigate('/admin/dashboard');
         }
     };
@@ -33,12 +33,6 @@ export const AddHousePage = () => {
                 </header>
 
                 <main className="form-content">
-                    {/* Si el hook está trabajando, mostramos mnsje */}
-                    {loading && (
-                        <div className="loading-state">
-                            <p>Subiendo imágenes... Por favor, espera.</p>
-                        </div>
-                    )}
                     <HouseForm
                         onSubmit={handleCrear}
                         buttonText="Guardar Vivienda"

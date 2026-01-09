@@ -6,7 +6,7 @@ export const PublicContext = createContext();
 export const PublicProvider = ({ children }) => {
     
     // Usar hook Fetch pasándole URL de las casas
-    const { data, loading, error, consultaFetch } = useFetch('http://localhost:4001/api/home');
+    const { data, loading, error, consultaFetch } = useFetch('http://localhost:4001/home');
 
     //console.log("Datos que vienen del back:", data);     // para ver cómo se llama en back la data
 

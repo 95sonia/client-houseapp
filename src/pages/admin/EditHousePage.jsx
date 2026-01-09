@@ -10,17 +10,16 @@ import toast from 'react-hot-toast';
 export const EditHousePage = () => {
     const { id } = useParams(); // Pillamos el ID de la URL
     const navigate = useNavigate();
-    const { houses, consultaFetch } = useContext(AdminContext);
+    const { houses, refreshHouses } = useContext(AdminContext);
     const { editHouse, loading, error } = useAdminHouses();
 
     // Buscamos la casa específica en nuestra lista del contexto
-    const houseToEdit = houses.find(h => h._id === id);
+    const houseToEdit = houses.find(casa => casa._id === id);
 
     const handleEditar = async (formData, selectedFiles) => {
         const ok = await editHouse(id, formData, selectedFiles);
         if (ok) {
-
-            await consultaFetch(); // Refrescamos la lista 
+            refreshHouses(); // Refrescamos la lista 
             navigate('/admin/dashboard');
         }
     };
@@ -45,7 +44,7 @@ export const EditHousePage = () => {
                             onSubmit={handleEditar}
                             buttonText="Actualizar Vivienda"
                         />
-                    {error && <p className="error-msg">{error}</p>}
+                   
                 </main>
             </div>
         </div>
