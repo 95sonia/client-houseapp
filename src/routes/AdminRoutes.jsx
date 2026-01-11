@@ -3,12 +3,16 @@ import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage';
 import { AddHousePage } from '../pages/admin/AddHousePage';
 import { EditHousePage } from '../pages/admin/EditHousePage';
 import { AdminReservasPage } from '../pages/admin/AdminReservasPage';
+import { HouseDetailsPage } from '../pages/templates/HouseDetailsPage';
 
 export const AdminRoutes = () => {
     return (
         <Routes>
             {/* Panel principal /admin/dashboard */}
             <Route path="dashboard" element={<AdminDashboardPage />} />
+
+            {/* Ver detalle de una casa /admin/house/:id */}
+            <Route path='house/:id' element={<HouseDetailsPage />} />
 
             {/*Añadir casa /admin/createHouse */}
             <Route path="createHouse" element={<AddHousePage />} />

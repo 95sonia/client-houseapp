@@ -55,7 +55,7 @@ export const useAuth = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                // Enviamos nombre, email, password y tlfn
+                // Enviamos nombre, email, direccion, password, tlfno...
                 body: JSON.stringify(datosRegistro)
             });
 

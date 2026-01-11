@@ -1,8 +1,21 @@
-@import './variables';
+@use 'variables';
 
-// Variables
-// $primary-color: #2563eb;
-// $bg-light: #f8fafc;
+//QUITAR ESTAS VARIABLES DE AQUI, LAS PONGO DE MOMENTO PORQUE ME DA PROBLEMAS AL IMPORTAR
+
+//poner todas las variables: variables.$bg-light
+
+$color-menta: #26f0c5;
+$color-negro: #1a1a1a;
+$color-bg: #f8f9fa;
+$color-text-grey: #717171;
+$color-error: #ff6565;
+$radius-xl: 32px;
+$radius-md: 16px;
+$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
+$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+$color-blue-loud: #2563eb;
+$bg-light: #f8fafc;
+
 
 .admin-layout {
   background-color: $bg-light;
@@ -73,7 +86,7 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover; 
+      object-fit: cover;
     }
 
     .edit-overlay {
@@ -112,7 +125,7 @@
 
     h3 {
       margin-bottom: 0.5rem;
-      color: #1e293b;   
+      color: #1e293b;
     }
 
     .location {
@@ -141,6 +154,12 @@
       border-top: 1px solid #f1f5f9;
       padding-top: 1rem;
 
+      .btn-see-details {
+        color: $color-blue-loud;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
       button {
         background: none;
         border: none;
@@ -148,11 +167,6 @@
         display: flex;
         align-items: center;
         gap: 5px;
-
-        &.btn-reservas {
-          color: $primary-color;
-          font-weight: 500;
-        }
 
         &.btn-delete {
           color: $color-error;

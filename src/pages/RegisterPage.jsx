@@ -1,6 +1,7 @@
 import '../styles/Auth.scss';
 import { useAuth } from '../hooks/useAuth';
 import { NavPublic } from '../components/NavPublic';
+import registroImg from '../assets/images/registro_salon.jpg'
 
 export const RegisterPage = () => {
     const { handleRegister, error } = useAuth();
@@ -8,15 +9,18 @@ export const RegisterPage = () => {
     const handleSubmit = async (ev) => {
         ev.preventDefault(); //prevenir el envio
 
-        // capturar los datos del formulario usando los names de los inputs
+        // capturar los datos del formulario usando los NAMES de los inputs - antes de hacer la petición, para crear el obj que vamos a mandar al back
         const nuevoUsuario = {
             nombre: ev.target.nombre.value,
+            direccion: ev.target.direccion.value,
+            fechaNacimiento: ev.target.fechaNacimiento.value,
             email: ev.target.email.value,
             password: ev.target.password.value,
             telefono: ev.target.telefono.value
         };
 
         await handleRegister(nuevoUsuario);
+        console.log(nuevoUsuario, '---------desde RegisterPage front------------')
     };
 
     return (
@@ -28,17 +32,23 @@ export const RegisterPage = () => {
                         <p>Regístrate para alquilar una casa</p>
 
                         <form onSubmit={handleSubmit} className="authForm">
-                            <label htmlFor="nombre">Nombre</label>
+                            <label>Nombre</label>
                             <input type="text" id="nombre" name="nombre" required />
 
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required />
+                            <label>Dirección</label>
+                            <input type="text" id="direccion" name="direccion" required />
 
-                            <label htmlFor="password">Contraseña</label>
+                            <label>Fecha de nacimiento</label>
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" required />
+
+                            <label>Email</label>
+                            <input type="email" id="email" name="email" required />
+
+                            <label>Teléfono móvil</label>
+                            <input type="tel" id="telefono" name="telefono" required />
+
+                            <label>Contraseña</label>
                             <input type="password" id="password" name="password" required />
-
-                            <label htmlFor="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="Ej: 666123456" required />
 
                             {/* Solo se muestra si el Hook detecta un error del backend */}
                             {error && <p className="error-msg">{error}</p>}
@@ -51,8 +61,8 @@ export const RegisterPage = () => {
 
                     <div className="auth-image">
                         <img
-                            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1974"
-                            alt="HouseApp Interior"
+                            src={registroImg}
+                            alt="Regístrate en HouseApp. Imagen salón casa"
                         />
                     </div>
                 </div>

@@ -1,4 +1,16 @@
-@import './variables';
+@use './variables';
+
+$color-menta: #26f0c5;
+$color-negro: #1a1a1a;
+$color-bg: #f8f9fa;
+$color-text-grey: #717171;
+$color-error: #ff6565;
+$radius-xl: 32px;
+$radius-md: 16px;
+$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
+$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+$color-blue-loud: #2563eb;
+$bg-light: #f8fafc;
 
 // CONTENEDOR PRINCIPAL
 .home-container {
@@ -96,7 +108,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      color: $color-text-muted;
+      color: $color-text-grey;
       font-size: 0.95rem;
       margin-bottom: 1rem;
     }
@@ -109,7 +121,7 @@
 
       span {
         font-size: 0.9rem;
-        color: $color-text-muted;
+        color: $color-text-grey;
         font-weight: 400;
       }
     }

@@ -1,0 +1,80 @@
+@use './variables';
+
+// Variables de respaldo por si falla la importación
+$color-menta: #26f0c5;
+$color-negro: #1a1a1a;
+$color-bg: #f8f9fa;
+$color-text-grey: #717171;
+$color-error: #ff6565;
+$radius-xl: 32px;
+$radius-md: 16px;
+$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
+$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+$color-blue-loud: #2563eb;
+$bg-light: #f8fafc;
+
+.house-details-page {
+    max-width: 800px; 
+    margin: 0 auto;   
+    padding: 2rem 1rem;
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    // FOTOS
+    .main-img {
+        width: 100%;
+        height: 350px;
+        border-radius: $radius-md;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        img { width: 100%; height: 100%; object-fit: cover; }
+    }
+
+    .secondary-imgs {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; }
+    }
+
+    // INFO
+    .info-wrapper {
+        border-top: 1px solid #eee;
+        padding-top: 1.5rem;
+        .price { font-size: 1.4rem; font-weight: bold; margin: 1rem 0; }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            &.disponible { background-color: $color-menta; }
+        }
+    }
+
+    // BOTONES
+    .actions-section {
+        margin-top: 2.5rem;
+        padding: 2rem;
+        background-color: #f9f9f9;
+        border-radius: $radius-md;
+
+        .btn-edit, .btn-fav, .btn-reserve {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+        }
+
+        .btn-reserve { background-color: $color-menta; color: $color-negro; }
+        .btn-edit { background-color: $color-negro; color: white; }
+    }
+}

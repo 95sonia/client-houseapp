@@ -1,54 +1,102 @@
-import React from 'react'
-import { useContext, useEffect } from 'react';
-import { AdminContext } from '../../context/AdminContext';
+import '../../styles/HouseDetails.scss'
+import { useContext, useMemo } from 'react';
+import { useParams, useNavigate, Link, useLocation } from 'react-router';
 import { AuthContext } from '../../context/AuthContext'; // Para saber rol
 import { useUserHouses } from '../../hooks/useUserHouses';
-import { AdminNavbar } from '../../components/admin/AdminNavbar';
-import { UserNavbar } from '../../components/user/UserNavbar';
-// falta public navbar
-
+import { useFetch } from '../../hooks/useFetch';
 
 export const HouseDetailsPage = () => {
+  const { id } = useParams();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   // Traemos datos y contextos
-  const { houses } = useContext(AdminContext);
   const { user } = useContext(AuthContext); // user.role es admin o user
-  const { addFavorito, reservarHouse } = useUserHouses();
+  const { addFavorito } = useUserHouses();
 
-  // Buscar la casa
-  const house = houses.find(casa => casa._id === id);
-  if (!house) return <p>Cargando detalles de la vivienda...</p>;
+  // Construir URL dinámicamente usando .env
+  const apiUrl = useMemo(() => {
+    const base = import.meta.env.VITE_API_URL_BASE;
+
+    if (pathname.includes('/admin/')) {
+      return `${base}/admin/house/${id}`;
+    } else if (pathname.includes('/user/')) {
+      return `${base}/user/house/${id}`;
+    } else {
+      return `${base}/home/house/${id}`; // Ruta pública
+    }
+  }, [id, pathname]);
+
+  // useFetch apuntando a la ruta pública que creamos en el Back
+  const { data, loading, error } = useFetch(apiUrl);
+
+  // Extraemos la casa de la propiedad 'data' que devuelve tu backend
+  const house = data?.data;
+
+  if (loading) return <div className="cargando">Cargando detalles...</div>;
+  if (error) return <div className="error-msg">Error: {error}</div>;
+  if (!house) return <div className="error-msg">Vivienda no encontrada.</div>;
 
   return (
     <>
-      <h1>AQUÍ ESTAN LOS DETALLES DE UNA CASA</h1>
-      <p>Inicia sesión o Regístrate para reservar la vivienda</p>
-
-      <div>
-        {/*METER EN NAVBAR SEGUN EL ROL O SI ES PUBLIC ..   !user ? ---> Si NO hay usuario (usuario es null o undefined)"*/}
-        {!user ? <NavPublic /> : user.role === 'admin' ? <AdminNavbar /> : <UserNavbar />}
-
+      <main className="house-details-page">
         <section>
           {/*IMÁGENES DE LA CASA */}
-        </section>
+          <h1>{house.titulo}</h1>
+          <div classsName="main-img">
+            <img src={house.imagenPrincipal} alt={house.titulo} className="main-img" />
+          </div>
 
-        <section>
+          <div className="secondary-imgs">
+            {house.imagenes.map((img, index) => (
+              <img key={index} src={img} alt={`Detalle ${index}`} />
+            ))}
+          </div>
+        </section >
+
+        <section className="info-wrapper">
           {/*INFO DE LA CASA */}
+          <h3>Información de la vivienda: </h3>
+          <div className="house-info">
+            <span>{house.ubicacion}</span>
+            <p>{house.descripcion}</p>
+            <p className="price">{house.precioNoche}€ / noche</p>
+            <span className={`badge ${house.estado}`}>{house.estado}</span>
+          </div>
         </section>
 
+        <section className="actions-section">
+          {/*CASO ADMIN */}
+          {user?.role === 'admin' && (
+            <button className="btn-edit"
+              onClick={() => navigate(`/admin/editHouse/${id}`)}
+            > Editar Vivienda
+            </button>)}
 
-        <section>
-          {/*BOTONES CONDICIONALES: EDITAR ADMIN, GUARDAR FAVORITO Y RESERVAR USER, PUBLIC NINGUN BOTON */}
-          {/*Condicional con estructura: 
-          user?.role === 'admin' && . meter los botones que quieras dentro y dentro la funcion onClick={() => addFavorito(id) por ej o el navigate a una ruta*/}
-          Condicionales con estructura:
-          {user?.role === 'admin' && (<button>  </button>)}
+          {/*CASO USER */}
+          {user?.role === 'user' && (
+            <div className="user-buttons">
+              <button className="btn-fav"
+                onClick={() => addFavorito(id)}
+              > ❤️ Guardar en Favoritos
+              </button>
 
-          {user?.role === 'user' && (<button>  </button>)}
+              <Link to={`/user/reservar/${id}`}
+                className='btn-reserve'
+              > Reservar Vivienda
+              </Link>
+            </div>
+          )}
+
+          {/* CASO: PÚBLICO -> No renderiza ningún btn, solo el aviso */}
+          {!user && (
+            <div className="public-notice">
+              <p>Para reservar o guardar esta vivienda, por favor <Link to="/login">inicia sesión</Link>.</p>
+            </div>
+          )}
+
         </section>
-
-
-      </div>
+      </main>
     </>
   )
 }

@@ -32,9 +32,10 @@ export const AdminHouseCard = ({ house, onDelete }) => {
                 <p className="price">{house.precioNoche} € <span>/ noche</span></p>
 
                 <div className="admin-actions">
-                    <button className="btn-reservas">
-                        <Search size={16} /> <p>Ver detalle</p>
-                    </button>
+                    <Link to={`/admin/house/${house._id}`} className="btn-see-details">
+                        <Search size={16} /> Ver detalle
+                    </Link>
+
                     <button className="btn-delete" title="Eliminar" onClick={handleConfirmDelete}>
                         <Trash2 size={20} />
                     </button>

@@ -39,7 +39,6 @@ export const HouseForm = ({ initialData = {}, onSubmit, buttonText }) => {
         const exito = await onSubmit({ ...formData, imagenesRestantes: existingImages }, files);
        if (exito) {
         console.log("Formulario enviado con éxito");
-
     }
     };
 
