@@ -41,4 +41,4 @@ const consultaFetch = async (url, data, method = 'GET') => {
     }
 }
 
-
+// PROBANDO CAMBIOS PARA REACT
