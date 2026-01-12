@@ -25,7 +25,6 @@ export const UserPerfilForm = () => {
         <label >Teléfono</label>
         <input type="tel" id="telefono" name="telefono" /*{value={'Probando...'} onChange={'Funcion que maneje el cambio'}}*/ />
 
-
         {/* Solo se muestra si el Hook detecta un error del backend 
    {error && <p className="error-msg">{error}</p>}*/}
         <button type="submit" className="btn-submit">Guardar cambios</button>

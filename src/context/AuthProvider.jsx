@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
+const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
 //crear el Proveedor. Su funcion: dar información -> aqui se exponen los datos que queremos compartir a los consumers
 //La información que quiero pasar a los hijos es el ususario y el rol - para que me permita entrar a ciertas pags
@@ -13,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     // ----FUNCIÓN REVALIDAR TOKEN------- (para no tener que volver a logearse al refrescar la pag)
     const revalidarToken = async () => {
         try {
-            const resp = await fetch('http://localhost:4001/renew', {
+            const resp = await fetch(`${apiUrl}/renew`, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include' // para cookies HttpOnly 
