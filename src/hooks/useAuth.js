@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+const apiUrl = import.meta.env.VITE_API_URL_BASE;
 
 //Hook que hace el fetch, recibe al usuario y le dice al UserProvider que lo guarde
 export const useAuth = () => {
@@ -13,11 +14,11 @@ export const useAuth = () => {
         setError(null);// Limpiamos errores previos antes de intentar loguear
 
         try {
-            const respuesta = await fetch('http://localhost:4001/login', {
+            const respuesta = await fetch(`${apiUrl}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(datosFormulario),
-                credentials: 'include'  // Prmitir cookis para que el navegador guarde token HttpOnly
+                credentials: 'include'  // Prmitir cookies para que el navegador guarde token HttpOnly
             });
 
             const data = await respuesta.json();
@@ -50,7 +51,7 @@ export const useAuth = () => {
         setError(null); // Limpiamos errores previos
 
         try {
-            const respuesta = await fetch('http://localhost:4001/register', {
+            const respuesta = await fetch(`${apiUrl}/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

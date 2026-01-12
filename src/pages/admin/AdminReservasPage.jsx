@@ -42,13 +42,13 @@ export const AdminReservasPage = () => {
             <article key={res._id} className="admin-card">
               <div className="card-info">
                 <div className="user-details">
-                  <strong>Cliente:</strong> {res.usuario?.nombre}
-                  <span>({res.usuario?.email})</span>
+                  <strong>Cliente:</strong> {res.usuario?.nombre} 
+                  <span> | Email: {res.usuario?.email} | Tlfno: {res.usuario?.telefono} </span>
                 </div>
                 <h2>{res.vivienda?.titulo}</h2>
                 <p className="location">{res.vivienda?.ubicacion}</p>
                 <div className="dates">
-                  <span>{new Date(res.fechaEntrada).toLocaleDateString()}</span>
+                  <span>Fecha: {new Date(res.fechaEntrada).toLocaleDateString()}</span>
                   <span> hasta </span>
                   <span>{new Date(res.fechaSalida).toLocaleDateString()}</span>
                 </div>

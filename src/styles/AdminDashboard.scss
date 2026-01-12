@@ -1,24 +1,7 @@
 @use 'variables';
 
-//QUITAR ESTAS VARIABLES DE AQUI, LAS PONGO DE MOMENTO PORQUE ME DA PROBLEMAS AL IMPORTAR
-
-//poner todas las variables: variables.$bg-light
-
-$color-menta: #26f0c5;
-$color-negro: #1a1a1a;
-$color-bg: #f8f9fa;
-$color-text-grey: #717171;
-$color-error: #ff6565;
-$radius-xl: 32px;
-$radius-md: 16px;
-$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
-$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-$color-blue-loud: #2563eb;
-$bg-light: #f8fafc;
-
-
 .admin-page {
-  background-color: $bg-light;
+  background-color: variables.$bg-light;
   min-height: 100vh;
   padding: 2rem;
 
@@ -36,11 +19,11 @@ $bg-light: #f8fafc;
     //boton añadir vivienda
     .btn-main-add {
       text-decoration: none;
-      background-color: $color-menta;
-      color: $color-negro; // Texto oscuro sobre fondo claro
+      background-color: variables.$color-menta;
+      color: variables.$color-negro; // Texto oscuro sobre fondo claro
       border: none;
       padding: 1rem 2rem;
-      border-radius: $radius-md;
+      border-radius: variables.$radius-md;
       font-weight: bold;
       display: flex;
       align-items: center;
@@ -69,7 +52,7 @@ $bg-light: #f8fafc;
   background: white;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: $shadow;
+  box-shadow: variables.$shadow;
   transition: all 0.3s ease;
 
   &:hover {
@@ -90,7 +73,7 @@ $bg-light: #f8fafc;
     }
 
     .btn-edit-icon {
-      color: $color-negro;
+      color: variables.$color-negro;
       text-decoration: none;
       position: absolute;
       top: 10px;
@@ -100,10 +83,10 @@ $bg-light: #f8fafc;
       padding: 10px;
       border-radius: 50%;
       cursor: pointer;
-      box-shadow: $shadow;
+      box-shadow: variables.$shadow;
 
       &:hover {
-        color: darken($color-menta, 20%);
+        color: variables.$color-menta-darken;
 
       }
     }
@@ -126,7 +109,7 @@ $bg-light: #f8fafc;
       }
 
       &.reservada {
-        background: $color-error;
+        background: variables.$color-error;
       }
     }
 
@@ -164,7 +147,7 @@ $bg-light: #f8fafc;
       .btn-detail {
         text-decoration: none;
         padding: 0.6rem 1rem;
-        border-radius: $radius-md;
+        border-radius: variables.$radius-md;
         font-size: 0.9rem;
         font-weight: 600;
         display: flex;
@@ -173,7 +156,7 @@ $bg-light: #f8fafc;
         gap: 8px;
         flex: 0 1 50%; // No crece (0), puede encoger (1) y su base es el 50%
         transition: all 0.2s;
-        background-color: $bg-light;
+        background-color: variables.$bg-light;
         color: #1e293b;
         border: 0.7px solid #e2e8f0;
 
@@ -191,10 +174,10 @@ $bg-light: #f8fafc;
         gap: 5px;
 
         &.btn-delete {
-          color: $color-error;
+          color: variables.$color-error;
 
           &:hover {
-            color: darken($color-error, 15%);
+            color: variables.$color-red-darken;
           }
         }
       }

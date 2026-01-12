@@ -1,20 +1,7 @@
 @use './variables';
 
-//QUITAR ESTAS VARIABLES DE AQUI, LAS PONGO DE MOMENTO PORQUE ME DA PROBLEMAS AL IMPORTAR
-$color-menta: #26f0c5;
-$color-negro: #1a1a1a;
-$color-bg: #f8f9fa;
-$color-text-grey: #717171;
-$color-error: #ff6565;
-$radius-xl: 32px;
-$radius-md: 16px;
-$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
-$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-$color-blue-loud: #2563eb;
-$bg-light: #f8fafc;
-
 .dashboard-user {
-    background-color: $bg-light;
+    background-color: variables.$bg-light;
     min-height: 100vh;
     padding: 2rem;
 
@@ -34,7 +21,7 @@ $bg-light: #f8fafc;
 
         h2 {
             font-size: 1.7rem;
-            color: $color-negro;
+            color: variables.$color-negro;
             font-weight: 700;
             margin-top: 2%;
         }
@@ -56,15 +43,15 @@ $bg-light: #f8fafc;
                 width: 100%;
                 padding: 0.8rem 1rem 0.8rem 2.7rem;
                 border: 1px solid #e2e8f0;
-                border-radius: $radius-md;
+                border-radius: variables.$radius-md;
                 background-color: white;
-                box-shadow: $shadow-soft;
+                box-shadow: variables.$shadow-soft;
                 outline: none;
                 font-size: 1rem;
                 transition: border-color 0.2s;
 
                 &:focus {
-                    border-color: $color-menta;
+                    border-color: variables.$color-menta;
                 }
             }
         }
@@ -76,7 +63,7 @@ $bg-light: #f8fafc;
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: $shadow;
+    box-shadow: variables.$shadow;
     transition: all 0.3s ease;
 
     &:hover {
@@ -109,7 +96,7 @@ $bg-light: #f8fafc;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: $shadow;
+            box-shadow: variables.$shadow;
             color: #64748b;
             transition: all 0.2s ease;
 
@@ -143,7 +130,7 @@ $bg-light: #f8fafc;
             display: flex;
             align-items: center;
             gap: 5px;
-            color: $color-text-grey;
+            color: variables.$color-text-grey;
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
@@ -156,7 +143,7 @@ $bg-light: #f8fafc;
 
             span {
                 font-size: 0.8rem;
-                color: $color-text-grey;
+                color: variables.$color-text-grey;
                 font-weight: normal;
             }
         }
@@ -172,7 +159,7 @@ $bg-light: #f8fafc;
             .btn-reserve {
                 text-decoration: none;
                 padding: 0.6rem 1rem;
-                border-radius: $radius-md;
+                border-radius: variables.$radius-md;
                 font-size: 0.9rem;
                 font-weight: 600;
                 display: flex;
@@ -184,7 +171,7 @@ $bg-light: #f8fafc;
             }
 
             .btn-detail {
-                background-color: $bg-light;
+                background-color: variables.$bg-light;
                 color: #1e293b;
                 border: 1px solid #e2e8f0;
 
@@ -194,12 +181,12 @@ $bg-light: #f8fafc;
             }
 
             .btn-reserve {
-                background-color: $color-menta;
-                color: $color-negro;
+                background-color: variables.$color-menta;
+                color: variables.$color-negro;
 
 
                 &:hover {
-                    background-color: darken($color-menta, 10%);
+                    background-color: variables.$color-menta-darken;
                     transform: translateY(-1px);
                 }
             }

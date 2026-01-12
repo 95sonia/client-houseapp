@@ -23,7 +23,7 @@ export const ReservaForm = ({ houseId }) => {
     const exito = await consultaFetch(`${apiUrl}/user/reservar/${houseId}`, 'POST', reserva);
 
     if (exito) {
-      toast.success('¡Reserva confirmada!');
+      toast.success('¡Reserva enviada! Recibirá la confirmación en menos de 24 horas. El pago se realiza en el alojamiento');
     }
   };
 

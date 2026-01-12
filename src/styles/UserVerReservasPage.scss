@@ -1,22 +1,6 @@
 
 @use 'variables';
 
-//QUITAR ESTAS VARIABLES DE AQUI, LAS PONGO DE MOMENTO PORQUE ME DA PROBLEMAS AL IMPORTAR
-$color-menta: #26f0c5;
-$color-negro: #1a1a1a;
-$color-bg: #f8f9fa;
-$color-text-grey: #717171;
-$color-error: #ff6565;
-$exito: #0ca678;
-$alerta: #f59f00;
-$radius-xl: 32px;
-$radius-md: 16px;
-$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
-$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-$color-blue-loud: #2563eb;
-$bg-light: #f8fafc;
-
-
 .mis-reservas-container {
     max-width: 800px;
     margin: 40px auto;
@@ -28,12 +12,12 @@ $bg-light: #f8fafc;
 
         h1 {
             font-size: 2.3rem;
-            color: $color-negro;
-            span { color: $color-menta; }
+            color: variables.$color-negro;
+            span { color: variables.$color-menta; }
         }
 
         p {
-            color: $color-text-grey;
+            color: variables.$color-text-grey;
             margin-top: 8px;
             font-size: 1rem;
         }
@@ -50,7 +34,7 @@ $bg-light: #f8fafc;
         padding: 50px;
         background: #f8fafc;
         border-radius: 16px;
-        color: $color-text-grey;
+        color: variables.$color-text-grey;
         border: 2px dashed #e2e8f0;
     }
 
@@ -74,7 +58,7 @@ $bg-light: #f8fafc;
             .reserva-number {
                 font-size: 0.8rem;
                 font-weight: 700;
-                color:  $color-text-grey;
+                color:  variables.$color-text-grey;
                 text-transform: uppercase;
                 letter-spacing: 1px;
             }
@@ -82,11 +66,11 @@ $bg-light: #f8fafc;
             h2 {
                 margin: 5px 0;
                 font-size: 1.4rem;
-                color: $color-negro;
+                color: variables.$color-negro;
             }
 
             .location {
-                color: $color-text-grey;
+                color: variables.$color-text-grey;
                 font-size: 0.95rem;
                 margin-bottom: 12px;
                 font-weight: 500;
@@ -103,7 +87,7 @@ $bg-light: #f8fafc;
             .total-price {
                 margin-top: 12px;
                 font-weight: 700;
-                color: $color-negro;
+                color: variables.$color-negro;
                 font-size: 1.1rem;
             }
         }
@@ -119,15 +103,15 @@ $bg-light: #f8fafc;
 
                 // cambia COLOR según el estado
                 &.pendiente {
-                    background-color: $alerta;
+                    background-color: variables.$alerta;
                 }
 
                 &.confirmada {
-                    background-color: $exito;
+                    background-color: variables.$exito;
                 }
 
                 &.cancelada {
-                    background-color:  $color-error;
+                    background-color:  variables.$color-error;
                 }
             }
         }

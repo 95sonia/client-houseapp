@@ -1,26 +1,12 @@
 @use 'variables';
 
-//QUITAR ESTAS VARIABLES DE AQUI, LAS PONGO DE MOMENTO PORQUE ME DA PROBLEMAS AL IMPORTAR
-
-$color-menta: #26f0c5;
-$color-negro: #1a1a1a;
-$color-bg: #f8f9fa;
-$color-text-grey: #717171;
-$color-error: #ff6565;
-$radius-xl: 32px;
-$radius-md: 16px;
-$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
-$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-$color-blue-loud: #2563eb;
-$bg-light: #f8fafc;
-
 // Clase base para las pantallas de Auth
 .auth-page-wrapper {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $color-bg;
+    background-color: variables.$color-bg;
     padding: 20px;
     font-family: 'Inter', sans-serif;
 
@@ -30,9 +16,9 @@ $bg-light: #f8fafc;
         flex-direction: column;
         width: 100%;
         max-width: 450px;
-        border-radius: $radius-xl;
+        border-radius: variables.$radius-xl;
         overflow: hidden;
-        box-shadow: $shadow-soft;
+        box-shadow: variables.$shadow-soft;
 
         // --- IMAGEN ---
         .auth-image {
@@ -55,13 +41,13 @@ $bg-light: #f8fafc;
             h1 {
                 font-size: 1.8rem;
                 font-weight: 800;
-                color: $color-negro;
+                color: variables.$color-negro;
                 margin-bottom: 4px;
                 letter-spacing: -1px;
             }
 
             p {
-                color: $color-text-grey;
+                color: variables.$color-text-grey;
                 font-size: 0.9rem;
                 margin-bottom: 24px;
             }
@@ -74,7 +60,7 @@ $bg-light: #f8fafc;
                     font-size: 0.85rem;
                     font-weight: 700;
                     margin-bottom: 6px;
-                    color: $color-negro;
+                    color: variables.$color-negro;
                 }
 
                 input {
@@ -82,24 +68,24 @@ $bg-light: #f8fafc;
                     padding: 14px;
                     margin-bottom: 20px;
                     border: 1px solid #e0e0e0;
-                    border-radius: $radius-md;
+                    border-radius: variables.$radius-md;
                     background-color: #fcfcfc;
                     font-size: 1rem;
                     transition: all 0.3s ease;
 
                     &:focus {
                         outline: none;
-                        border-color: $color-menta;
+                        border-color: variables.$color-menta;
                         background-color: white;
-                        box-shadow: 0 0 0 4px rgba($color-menta, 0.1);
+                        box-shadow: 0 0 0 4px rgba(variables.$color-menta, 0.1);
                     }
                 }
 
                 .error-msg {
-                    color: $color-error;
+                    color: variables.$color-error;
                     font-size: 0.85rem;
                     font-weight: 600;
-                    background: rgba($color-error, 0.1);
+                    background: rgba(variables.$color-error, 0.1);
                     padding: 10px;
                     border-radius: 8px;
                     margin-bottom: 16px;
@@ -110,10 +96,10 @@ $bg-light: #f8fafc;
                 .btn-submit {
                     width: 100%;
                     padding: 16px;
-                    background-color: $color-menta;
-                    color: $color-negro;
+                    background-color: variables.$color-menta;
+                    color: variables.$color-negro;
                     border: none;
-                    border-radius: $radius-md;
+                    border-radius: variables.$radius-md;
                     font-size: 1rem;
                     font-weight: 800;
                     cursor: pointer;

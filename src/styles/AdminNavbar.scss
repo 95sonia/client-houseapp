@@ -1,24 +1,12 @@
 @use 'variables';
 
-$color-menta: #26f0c5;
-$color-negro: #1a1a1a;
-$color-bg: #f8f9fa;
-$color-text-grey: #717171;
-$color-error: #ff6565;
-$radius-xl: 32px;
-$radius-md: 16px;
-$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
-$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-$color-blue-loud: #2563eb;
-$bg-light: #f8fafc;
-
 .admin-nav {
-    background-color: $color-negro;
+    background-color: variables.$color-negro;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 0 0 $radius-md $radius-md;
+    border-radius: 0 0 variables.$radius-md variables.$radius-md;
 
     h1 {
         color: white;
@@ -32,7 +20,7 @@ $bg-light: #f8fafc;
         gap: 20px;
 
         .icon-active {
-            color: $color-menta;
+            color: variables.$color-menta;
         }
     }
 }
