@@ -1,4 +1,4 @@
-import '../styles/AllNavBar.scss'
+import '../styles/AllNavbar.scss'
 import { Link } from 'react-router';
 import { Home, UserCircle, NotebookPen } from 'lucide-react';
 
