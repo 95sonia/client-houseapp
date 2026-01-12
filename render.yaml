@@ -1,5 +1,5 @@
 services:
-  - type: static
+  - type: web
     name: client-houseapp
     env: static
     buildCommand: yarn install --no-frozen-lockfile && yarn build
