@@ -1,4 +1,4 @@
-import '../../styles/AllNavBar.scss'
+import '../../styles/AllNavbar.scss'
 import { useAuth } from '../../hooks/useAuth';
 import { Link } from 'react-router';
 import { Heart, Calendar, LogOut, Home, HandCoins, UserCircle } from 'lucide-react';
