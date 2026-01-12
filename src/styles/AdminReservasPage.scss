@@ -1,0 +1,147 @@
+.admin-reservas-page {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    .admin-header {
+        margin-bottom: 30px;
+
+        h1 span {
+            color: #26f0c5;
+        }
+
+        p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+    }
+
+    .admin-card {
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+
+        .user-details {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+
+            span {
+                color: #999;
+                margin-left: 5px;
+            }
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 4px 0;
+        }
+
+        .dates {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #444;
+            margin-top: 10px;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+
+            .status-manage {
+                font-size: 0.75rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                padding: 4px 12px;
+                border-radius: 20px;
+
+                &.pendiente {
+                    background: #fff4e6;
+                    color: #fd7e14;
+                }
+
+                &.confirmada {
+                    background: #e3faf3;
+                    color: #0ca678;
+                }
+
+                &.cancelada {
+                    background: #fff5f5;
+                    color: #fa5252;
+                }
+            }
+
+            .buttons {
+                display: flex;
+                gap: 8px;
+
+                button {
+                    padding: 8px 12px;
+                    border-radius: 6px;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    transition: 0.2s;
+
+                    &.btn-confirm {
+                        background: #f0f0f0;
+
+                        &:hover:not(:disabled) {
+                            background: #26f0c5;
+                        }
+                    }
+
+                    &.btn-cancel {
+                        background: #f0f0f0;
+
+                        &:hover:not(:disabled) {
+                            background: #fa5252;
+                            color: white;
+                        }
+                    }
+
+                    &.btn-pendiente {
+                        background: #f0f0f0;
+
+                        &:hover:not(:disabled) {
+                            background: #f59f00;
+                            color: white;
+                        }
+                    }
+
+                    &:disabled {
+                        opacity: 0.3;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-card {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .card-actions {
+            width: 100%;
+            margin-top: 15px;
+            align-items: flex-start;
+        }
+    }
+}

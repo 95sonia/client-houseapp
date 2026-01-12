@@ -1,4 +1,4 @@
-import '../../styles/UserNavBar.scss'
+import '../../styles/AllNavBar.scss'
 import { useAuth } from '../../hooks/useAuth';
 import { Link } from 'react-router';
 import { Heart, Calendar, LogOut, Home, HandCoins, UserCircle } from 'lucide-react';
@@ -8,7 +8,7 @@ export const UserNavbar = () => {
   const { user, handleLogout } = useAuth()
 
   return (
-    <nav className="user-navbar">
+    <nav className="all-navbar">
       <div className="nav-container">
         <Link to="/user/dashboard" className="nav-logo">HOUSE<span> APP</span></Link>
 

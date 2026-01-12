@@ -29,20 +29,18 @@ export const AdminDashboardPage = () => {
     if (loading) return <div className="loading">Cargando la lista de viviendas...</div>;
 
     return (
-        <div className="admin-layout">
+        <div className="admin-page">
             <AdminNavbar />
 
             <div className="admin-container">
                 {/* Cabecera  */}
                 <header className="dashboard-header">
-                    <div className="stats-info">
+                    <div className="house-number-info">
                         <h2>Hay {houses.length} viviendas registradas</h2>
                     </div>
 
                     <Link to="/admin/createHouse" className="btn-main-add">
-                        <PlusCircle size={30} />
-                        Añadir Nueva Vivienda
-                    </Link>
+                        <PlusCircle size={30} /> Añadir Nueva Vivienda </Link>
                 </header>
 
                 <main className="houses-grid">

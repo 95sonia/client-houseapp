@@ -39,7 +39,8 @@ export const useFetch = (urlInicial) => {
             };
 
             setData(datos);  // Guardar los datos recibidos en el estado
-
+            return datos;
+                
             // Si algo falla -> capturar error y mostrar con catch
         } catch (error) {
             console.log('Error al consultar API', error);

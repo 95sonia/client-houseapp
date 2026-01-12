@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useFetch } from './useFetch';
-const apiUrl = import.meta.env.API_URL_BASE;
+const apiUrl = import.meta.env.VITE_API_URL_BASE;
 
 export const useUserHouses = () => {
     // FUNCIÓN PARA AÑADIR FAVORITOS
@@ -13,7 +13,7 @@ export const useUserHouses = () => {
             const data = await consultaFetch(`${apiUrl}/user/favoritos/${houseId}`, 'POST');
 
             // Si llega aquI, es que respuesta.ok true
-            toast.success(data.msg || "Lista de favoritos actualizada");
+            toast.success(data.msg || "Vivienda añadida a favoritos");
             return true;
         } catch (err) {
             // El error ya fue capturado y relanzado por useFetch
@@ -23,29 +23,8 @@ export const useUserHouses = () => {
         }
     };
 
-    // const addFavorito = async (houseId) => {
-    //     setLoading(true);
-    //     try {
-    //         const respuesta = await fetch(`http://localhost:4001/user/favoritos/${houseId}`, {
-    //             method: 'POST',
-    //             credentials: 'include'
-    //         });
-    //         const data = await respuesta.json();
 
-    //         if (respuesta.ok) {
-    //             toast.success(data.msg); // "Añadido a favoritos" o "Eliminado"
-    //             return true;
-    //         } else {
-    //             toast.error(data.msg || "Error al actualizar favorito");
-    //             return false;
-    //         }
-    //     } catch (error) {
-    //         toast.error("Error de conexión");
-    //         return false;
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
+
 
     // ELIMINAR FAVORITO
     const deleteFavorito = async (houseId) => {
@@ -56,6 +35,15 @@ export const useUserHouses = () => {
         } catch (err) {
             console.log(err)
             return false;
+        }
+    };
+
+    // Para decidir si añadir o quitar de favs
+    const toggleFavorito = async (houseId, esFavoritoYa) => {
+        if (esFavoritoYa) {
+            return await deleteFavorito(houseId);
+        } else {
+            return await addFavorito(houseId);
         }
     };
 
@@ -104,6 +92,7 @@ export const useUserHouses = () => {
     return {
         addFavorito,
         deleteFavorito,
+        toggleFavorito,
         reservarHouse,
         loading,
         error

@@ -1,0 +1,154 @@
+
+@use 'variables';
+
+//QUITAR ESTAS VARIABLES DE AQUI, LAS PONGO DE MOMENTO PORQUE ME DA PROBLEMAS AL IMPORTAR
+$color-menta: #26f0c5;
+$color-negro: #1a1a1a;
+$color-bg: #f8f9fa;
+$color-text-grey: #717171;
+$color-error: #ff6565;
+$exito: #0ca678;
+$alerta: #f59f00;
+$radius-xl: 32px;
+$radius-md: 16px;
+$shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.06);
+$shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+$color-blue-loud: #2563eb;
+$bg-light: #f8fafc;
+
+
+.mis-reservas-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    .reservas-header {
+        text-align: center;
+        margin-bottom: 40px;
+
+        h1 {
+            font-size: 2.3rem;
+            color: $color-negro;
+            span { color: $color-menta; }
+        }
+
+        p {
+            color: $color-text-grey;
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+    }
+}
+
+.reservas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .no-reservas {
+        text-align: center;
+        padding: 50px;
+        background: #f8fafc;
+        border-radius: 16px;
+        color: $color-text-grey;
+        border: 2px dashed #e2e8f0;
+    }
+
+    .reserva-item {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        border: 1px solid #f1f5f9;
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .reserva-info {
+            .reserva-number {
+                font-size: 0.8rem;
+                font-weight: 700;
+                color:  $color-text-grey;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            h2 {
+                margin: 5px 0;
+                font-size: 1.4rem;
+                color: $color-negro;
+            }
+
+            .location {
+                color: $color-text-grey;
+                font-size: 0.95rem;
+                margin-bottom: 12px;
+                font-weight: 500;
+            }
+
+            .date {
+                font-size: 0.9rem;
+                color: #475569;
+                margin: 2px 0;
+                display: flex;
+                align-items: center;
+            }
+
+            .total-price {
+                margin-top: 12px;
+                font-weight: 700;
+                color: $color-negro;
+                font-size: 1.1rem;
+            }
+        }
+
+        .reserva-status {
+            .manage-status {
+                padding: 8px 18px;
+                border-radius: 50px;
+                font-size: 0.8rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+
+                // cambia COLOR según el estado
+                &.pendiente {
+                    background-color: $alerta;
+                }
+
+                &.confirmada {
+                    background-color: $exito;
+                }
+
+                &.cancelada {
+                    background-color:  $color-error;
+                }
+            }
+        }
+    }
+}
+
+// Responsive 
+@media (max-width: 600px) {
+    .reserva-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+
+        .reserva-status {
+            width: 100%;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 15px;
+            
+            .status-pill {
+                display: inline-block;
+            }
+        }
+    }
+}

@@ -10,7 +10,14 @@ function App() {
       <AppRoutes />
       <Footer />
       <div>
-        <Toaster position="top-right" reverseOrder={false} />
+        <Toaster position="top-right" reverseOrder={false}
+          toastOptions={{
+            style: { // Estilos globales
+              padding: '17px 25px',// bocadillo más grande
+              maxWidth: '500px',
+            },
+          }}
+        />
       </div>
 
     </>

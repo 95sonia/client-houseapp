@@ -12,20 +12,22 @@ $shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 $color-blue-loud: #2563eb;
 $bg-light: #f8fafc;
 
-.user-navbar {
-    font-family: 'Inter', sans-serif;
-    background-color: white;
-    height: 70px;
+.all-navbar {
+    background-color:$color-bg;
+    height: 60px;
     display: flex;
     align-items: center;
     box-shadow: $shadow;
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    left: 0; 
+    width: 100%; 
+    z-index: 1000; // Por encima de todo
+    margin-bottom: 0.5rem;
 
     .nav-container {
-        width: 90%;
-        max-width: 1400px;
+        width: 95%;
+        max-width: 1200px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -33,7 +35,7 @@ $bg-light: #f8fafc;
     }
 
     .nav-logo {
-        font-size: 1.5rem;
+        font-size: 1rem;
         font-weight: 800;
         text-decoration: none;
         color: $color-negro;
@@ -46,19 +48,25 @@ $bg-light: #f8fafc;
     .nav-links {
         display: flex;
         list-style: none;
-        gap: 2rem;
+        gap: 0.8rem;
 
-        a {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        a,
+        .nav-icon-btn {
+            background: none;
+            border: none;
             text-decoration: none;
             color: $color-negro;
-            font-weight: 500;
-            transition: color 0.3s;
+            display: flex;
+            align-items: center;
 
-            &:hover {
-                color: $color-menta;
+            span {
+                // OCULTAR TEXTO EN MÓVIL
+                display: none;
+            }
+
+            svg {
+                width: 22px;
+                height: 22px;
             }
         }
     }
@@ -77,6 +85,11 @@ $bg-light: #f8fafc;
             text-decoration: none;
             color: $color-negro;
             font-weight: 600;
+
+            span {
+                // Ocultar palabra "Perfil" en móvil
+                display: none;
+            }
         }
 
         .btn-logout {
@@ -91,6 +104,45 @@ $bg-light: #f8fafc;
 
             &:hover {
                 transform: scale(1.1);
+            }
+        }
+    }
+
+    // --- DESKTOP (Pantallas grandes) ---
+    @media (min-width: 768px) {
+        height: 70px;
+
+        .nav-container {
+            width: 90%;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            gap: 2rem;
+
+            a,
+            .nav-icon-btn {
+
+                // MOSTRAR TEXTO EN DESKTOP
+                span {
+                    display: inline;
+                    font-size: 0.95rem;
+                    font-weight: 500;
+                }
+
+                gap: 8px;
+            }
+        }
+
+        .nav-user-actions {
+            gap: 1.5rem;
+            padding-left: 1.5rem;
+
+            .perfil-link span {
+                display: inline;
             }
         }
     }

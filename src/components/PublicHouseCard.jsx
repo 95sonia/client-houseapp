@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/Home.scss'
-//import { Link } from 'react-router';
-import { MapPin, ArrowRight } from 'lucide-react'; 
+import { Link } from 'react-router';
+import { MapPin, Search } from 'lucide-react';
 
 export const PublicHouseCard = ({ house }) => {
     return (
@@ -11,18 +11,16 @@ export const PublicHouseCard = ({ house }) => {
             </div>
 
             <div className="house-info">
-                <span className={`badge ${house.estado}`}>{house.estado}</span>
-                
+                <span className={`info ${house.estado}`}>{house.estado}</span>
                 <h3>{house.titulo}</h3>
+                <p className="location"><MapPin size={14} /> {house.ubicacion}</p>
+                <p className="price">{house.precioNoche} € <span>/ noche</span></p>
+            </div>
 
-                <p className="location">
-                    <MapPin size={14} /> {house.ubicacion}
-                </p>
-
-                <p className="price">
-                    {house.precioNoche} € <span>/ noche</span>
-                </p>
-
+            <div className="actions">
+                <Link to={`/home/house/${house._id}`} className="btn-detail ">
+                    <Search size={16} /> Ver detalle
+                </Link>
             </div>
         </article>
     );

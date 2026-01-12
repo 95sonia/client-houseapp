@@ -20,24 +20,24 @@ export const AdminHouseCard = ({ house, onDelete }) => {
                 <img src={house.imagenPrincipal} alt={house.titulo} />
 
                 {/* Botón editar */}
-                <Link to={`/admin/editHouse/${house._id}`} className="edit-overlay btn-edit-icon">
+                <Link to={`/admin/editHouse/${house._id}`} className="btn-edit-icon">
                     <Edit size={16} />
                 </Link>
             </div>
 
             <div className="house-info">
-                <span className={`badge ${house.estado}`}>{house.estado}</span>
+                <span className={`info ${house.estado}`}>{house.estado}</span>
                 <h3>{house.titulo}</h3>
                 <p className="location"> <MapPin size={14} /> {house.ubicacion} </p>
                 <p className="price">{house.precioNoche} € <span>/ noche</span></p>
 
                 <div className="admin-actions">
-                    <Link to={`/admin/house/${house._id}`} className="btn-see-details">
+                    <Link to={`/admin/house/${house._id}`} className="btn-detail">
                         <Search size={16} /> Ver detalle
                     </Link>
 
                     <button className="btn-delete" title="Eliminar" onClick={handleConfirmDelete}>
-                        <Trash2 size={20} />
+                        <Trash2 size={20} /> Eliminar
                     </button>
                 </div>
             </div>

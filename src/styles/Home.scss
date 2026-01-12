@@ -22,14 +22,20 @@ $bg-light: #f8fafc;
   // CABECERA DE BIENVENIDA
   .home-header {
     margin-bottom: 3rem;
-    padding-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;  
+    margin-right: auto; 
 
     h1 {
+      margin: 0; // Quita márgenes por defecto del navegador
       font-size: 3rem;
       color: $color-negro;
       line-height: 1.2;
       font-weight: 800;
-      span {color: $color-menta;}
+
+      span {
+        color: $color-menta;
+      }
     }
   }
 
@@ -38,7 +44,7 @@ $bg-light: #f8fafc;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 2.5rem;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 }
@@ -49,7 +55,6 @@ $bg-light: #f8fafc;
   border-radius: $radius-md;
   overflow: hidden;
   box-shadow: $shadow-soft;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   display: flex;
   flex-direction: column;
 
@@ -62,7 +67,7 @@ $bg-light: #f8fafc;
     position: relative;
     height: 240px;
     width: 100%;
-    background-color: #f1f5f9;
+    background-color: #e2e8f0;
 
     img {
       width: 100%;
@@ -77,7 +82,7 @@ $bg-light: #f8fafc;
     display: flex;
     flex-direction: column;
 
-    .badge {
+    .info {
       align-self: flex-start;
       padding: 0.3rem 0.8rem;
       border-radius: 50px;
@@ -85,16 +90,14 @@ $bg-light: #f8fafc;
       font-weight: 700;
       text-transform: uppercase;
       margin-bottom: 1rem;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.6px;
 
       &.disponible {
-        background: #e7fdf4;
-        color: #033424;
+        background: #dcfce7;
       }
 
       &.reservada {
-        background: #fee2e2;
-        color: #980202;
+        background: $color-error;
       }
     }
 
@@ -123,6 +126,36 @@ $bg-light: #f8fafc;
         font-size: 0.9rem;
         color: $color-text-grey;
         font-weight: 400;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    align-items: center;
+    justify-content: center;
+
+    .btn-detail {
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-radius: $radius-md;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 0 1 50%; // No crece (0), puede encoger (1) y su base es el 50%
+      transition: all 0.2s;
+      background-color: $bg-light;
+      color: #1e293b;
+      border: 0.7px solid #e2e8f0;
+
+      &:hover {
+        background-color: #e2e8f0;
       }
     }
   }

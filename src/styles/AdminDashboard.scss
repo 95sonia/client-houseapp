@@ -17,7 +17,7 @@ $color-blue-loud: #2563eb;
 $bg-light: #f8fafc;
 
 
-.admin-layout {
+.admin-page {
   background-color: $bg-light;
   min-height: 100vh;
   padding: 2rem;
@@ -56,7 +56,7 @@ $bg-light: #f8fafc;
     }
   }
 
-  // EL GRID
+  // EL GRID DE CASAS
   .houses-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -89,24 +89,30 @@ $bg-light: #f8fafc;
       object-fit: cover;
     }
 
-    .edit-overlay {
+    .btn-edit-icon {
+      color: $color-negro;
       text-decoration: none;
       position: absolute;
       top: 10px;
       right: 10px;
       background: white;
       border: none;
-      padding: 8px;
+      padding: 10px;
       border-radius: 50%;
       cursor: pointer;
       box-shadow: $shadow;
+
+      &:hover {
+        color: darken($color-menta, 20%);
+
+      }
     }
   }
 
   .house-info {
     padding: 1.5rem;
 
-    .badge {
+    .info {
       display: inline-block;
       padding: 0.2rem 0.6rem;
       border-radius: 4px;
@@ -114,6 +120,7 @@ $bg-light: #f8fafc;
       text-transform: uppercase;
       margin-bottom: 0.5rem;
 
+      // Colores específicos segun la palabra que venga de la BD
       &.disponible {
         background: #dcfce7;
       }
@@ -150,14 +157,29 @@ $bg-light: #f8fafc;
 
     .admin-actions {
       display: flex;
-      justify-content: space-between;
       border-top: 1px solid #f1f5f9;
       padding-top: 1rem;
+      gap: 1rem;
 
-      .btn-see-details {
-        color: $color-blue-loud;
-        font-weight: 500;
+      .btn-detail {
         text-decoration: none;
+        padding: 0.6rem 1rem;
+        border-radius: $radius-md;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex: 0 1 50%; // No crece (0), puede encoger (1) y su base es el 50%
+        transition: all 0.2s;
+        background-color: $bg-light;
+        color: #1e293b;
+        border: 0.7px solid #e2e8f0;
+
+        &:hover {
+          background-color: #e2e8f0;
+        }
       }
 
       button {
@@ -170,6 +192,10 @@ $bg-light: #f8fafc;
 
         &.btn-delete {
           color: $color-error;
+
+          &:hover {
+            color: darken($color-error, 15%);
+          }
         }
       }
     }

@@ -1200,6 +1200,7 @@ __metadata:
     react-dom: "npm:^19.2.0"
     react-dropzone: "npm:^14.3.8"
     react-hot-toast: "npm:^2.6.0"
+    react-image-gallery: "npm:^1.4.0"
     react-router: "npm:^7.11.0"
     sass: "npm:^1.97.1"
     vite: "npm:^7.2.4"
@@ -2412,6 +2413,15 @@ __metadata:
     react: ">=16"
     react-dom: ">=16"
   checksum: 10c0/c25652e0a477ab501b365a6a2d20b314275a1d9963dd56a9803972d602845f0d44ade2c3345cd66ccd251d62e2e5a10001a55fd80fa183c0e41343f3780ffa9f
+  languageName: node
+  linkType: hard
+
+"react-image-gallery@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "react-image-gallery@npm:1.4.0"
+  peerDependencies:
+    react: ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/0b30dcbc3be2d783021bdffda30719df106e002626789f481065e5f7296e9cd265d0e7e5b761ca9eca3ef20a33c36635f6ce31a6c263a2e4db51f59bc45005fa
   languageName: node
   linkType: hard
 

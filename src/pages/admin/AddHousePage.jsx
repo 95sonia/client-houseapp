@@ -24,7 +24,7 @@ export const AddHousePage = () => {
     };
 
     return (
-        <div className="admin-layout">
+        <div className="admin-page">
             <AdminNavbar />
             <div className="admin-container">
                 <header className="form-header">

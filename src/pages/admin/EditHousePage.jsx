@@ -27,7 +27,7 @@ export const EditHousePage = () => {
     if (!houseToEdit) return <p>No se ha encontrado la vivienda...</p>;
 
     return (
-        <div className="admin-layout">
+        <div className="admin-page">
             <AdminNavbar />
             <div className="admin-container">
                 <header className="form-header">

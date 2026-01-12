@@ -33,9 +33,10 @@ $bg-light: #f8fafc;
         margin-bottom: 2rem;
 
         h2 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             color: $color-negro;
             font-weight: 700;
+            margin-top: 2%;
         }
 
         .buscador-contenedor {
@@ -117,12 +118,14 @@ $bg-light: #f8fafc;
             }
 
             &.active {
-                color: $color-error;
+                color: #ff4b5c; 
                 background: white;
 
                 svg {
-            fill: $color-error; // Rellena el icono de Lucide
-        }
+                    // Rellena el icono de Lucide
+                    fill: #ff4b5c !important; // Relleno
+                    stroke: #ff4b5c; // Borde 
+                }
             }
         }
     }
@@ -193,10 +196,10 @@ $bg-light: #f8fafc;
             .btn-reserve {
                 background-color: $color-menta;
                 color: $color-negro;
-                border: none;
+
 
                 &:hover {
-                    background-color: darken($color-menta, 5%);
+                    background-color: darken($color-menta, 10%);
                     transform: translateY(-1px);
                 }
             }

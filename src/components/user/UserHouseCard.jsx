@@ -13,14 +13,15 @@
                     <button className={`capa-favorito ${esFavorito ? 'active' : ''}`}
                         onClick={onhandleFavorito}
                     >
-                        <Heart size={20} fill={esFavorito ? "currentColor" : "none"} />
+                        <Heart size={20}  />
                     </button>
                 </div>
 
                 <div className="house-info">
+                     <span className={`info ${house.estado}`}>{house.estado}</span>
                     <h3>{house.titulo}</h3>
                     <p className="location"> <MapPin size={14} /> {house.ubicacion} </p>
-                    <p className="price">{house.precio} € <span>/ noche</span></p>
+                    <p className="price">{house.precioNoche} € <span>/ noche</span></p>
 
                     <div className="user-actions">
                         <Link to={`/user/house/${house._id}`} className="btn-detail">

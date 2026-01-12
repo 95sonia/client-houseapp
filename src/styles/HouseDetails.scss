@@ -13,9 +13,10 @@ $shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
 $color-blue-loud: #2563eb;
 $bg-light: #f8fafc;
 
+
 .house-details-page {
-    max-width: 800px; 
-    margin: 0 auto;   
+    max-width: 700px;
+    margin: 0 auto;
     padding: 2rem 1rem;
 
     h1 {
@@ -23,35 +24,61 @@ $bg-light: #f8fafc;
         margin-bottom: 1.5rem;
     }
 
-    // FOTOS
-    .main-img {
-        width: 100%;
-        height: 350px;
-        border-radius: $radius-md;
-        overflow: hidden;
-        margin-bottom: 1rem;
-        img { width: 100%; height: 100%; object-fit: cover; }
-    }
+    // --- BLOQUE GALERÍA  ---
+    .gallery-container {
+        margin-bottom: 2rem;
 
-    .secondary-imgs {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; }
+        // altura para que librería sepa dónde recortar
+        .image-gallery-slide {
+            height: 400px; // Altura en desktop
+            background-color: #e2e8f0;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        // Miniaturas 
+        .image-gallery-thumbnail {
+            border-radius: $radius-md;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                height: 80px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .image-gallery-slide {
+                height: 250px; // Altura en móvil
+            }
+        }
     }
 
     // INFO
     .info-wrapper {
         border-top: 1px solid #eee;
         padding-top: 1.5rem;
-        .price { font-size: 1.4rem; font-weight: bold; margin: 1rem 0; }
-        
-        .badge {
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .info {
             display: inline-block;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.8rem;
-            &.disponible { background-color: $color-menta; }
+
+            &.disponible {
+                background-color: $color-menta;
+            }
         }
     }
 
@@ -62,7 +89,9 @@ $bg-light: #f8fafc;
         background-color: #f9f9f9;
         border-radius: $radius-md;
 
-        .btn-edit, .btn-fav, .btn-reserve {
+        .btn-edit,
+        .btn-fav,
+        .btn-reserve {
             display: block;
             width: 100%;
             padding: 1rem;
@@ -72,9 +101,17 @@ $bg-light: #f8fafc;
             font-weight: bold;
             text-decoration: none;
             border: none;
+            cursor: pointer;
         }
 
-        .btn-reserve { background-color: $color-menta; color: $color-negro; }
-        .btn-edit { background-color: $color-negro; color: white; }
+        .btn-reserve {
+            background-color: $color-menta;
+            color: $color-negro;
+        }
+
+        .btn-edit {
+            background-color: $color-negro;
+            color: white;
+        }
     }
 }
