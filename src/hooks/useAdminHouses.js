@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { useFetch } from './useFetch';
-const apiUrl = import.meta.env.VITE_API_URL_BASE;
+const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
 export const useAdminHouses = () => {
     const { data, loading, error, consultaFetch } = useFetch()

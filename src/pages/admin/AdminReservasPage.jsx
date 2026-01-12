@@ -3,7 +3,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { toast } from 'react-hot-toast';
 import '../../styles/AdminReservasPage.scss';
 
-const apiUrl = import.meta.env.VITE_API_URL_BASE;
+const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
 export const AdminReservasPage = () => {
   // 1. Usamos la ruta /admin/reservas (ajustar según tu prefijo de router)

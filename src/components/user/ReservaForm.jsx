@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { toast } from 'react-hot-toast';
 
-const apiUrl = import.meta.env.VITE_API_URL_BASE;
+const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
 export const ReservaForm = ({ houseId }) => {
   const { consultaFetch, error } = useFetch();

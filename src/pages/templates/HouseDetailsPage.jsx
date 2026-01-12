@@ -17,7 +17,7 @@ export const HouseDetailsPage = () => {
 
   // Construir URL dinámicamente usando .env
   const apiUrl = useMemo(() => {
-    const base = import.meta.env.VITE_API_URL_BASE;
+    const base = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
     if (pathname.includes('/admin/')) {
       return `${base}/admin/house/${id}`;

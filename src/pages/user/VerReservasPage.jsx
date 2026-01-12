@@ -1,7 +1,7 @@
 import { useFetch } from '../../hooks/useFetch';
 import '../../styles/UserVerReservasPage.scss';
 
-const apiUrl = import.meta.env.VITE_API_URL_BASE;
+const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
 export const VerReservasPage = () => {
   const { data, loading } = useFetch(`${apiUrl}/user/reservas`);

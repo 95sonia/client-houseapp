@@ -5,7 +5,7 @@ import { useUserHouses } from '../../hooks/useUserHouses';
 import { UserHouseCard } from '../../components/user/UserHouseCard';
 import { Heart } from 'lucide-react'
 
-const apiUrl = import.meta.env.VITE_API_URL_BASE;
+const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
 export const FavoritosPage = () => {
   //Traemos las casas favoritas al cargar

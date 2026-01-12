@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 import { useFetch } from '../hooks/useFetch';
-const apiUrl = import.meta.env.VITE_API_URL_BASE;
+const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
 export const PublicContext = createContext();
 

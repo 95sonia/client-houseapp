@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
-const apiUrl = import.meta.env.VITE_API_URL_BASE;
+const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
 
 //Hook que hace el fetch, recibe al usuario y le dice al UserProvider que lo guarde
 export const useAuth = () => {
