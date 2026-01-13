@@ -1,12 +1,16 @@
 @use './variables';
 
 .house-details-page {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5%;
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin-bottom: 1.5rem;
     }
 
@@ -50,20 +54,54 @@
         border-top: 1px solid #eee;
         padding-top: 1.5rem;
 
-        .price {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin: 1rem 0;
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
-        .info {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 1rem;
+        p {
+            line-height: 130%;
+            font-size: 1.2rem;
+        }
 
-            &.disponible {
-                background-color: variables.$color-menta;
+        .house-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20%;
+            border-top: 1px solid #eee;
+            margin-top: 3%;
+
+            span {
+                font-size: 1.2rem;
+                font-weight: bold;
+                line-height: 130%;
+                margin-bottom: 4%;
+            }
+
+            .price {
+                font-size: 1.4rem;
+                font-weight: bold;
+                margin: 1rem 0;
+            }
+
+            .info {
+
+                padding: 5px 15px;
+                border-radius: 20px;
+                font-size: 1rem;
+                width: 30%;
+                text-align: left;
+                text-transform: uppercase;
+
+
+                &.disponible {
+                    background-color: variables.$exito;
+                }
+
+                &.reservada {
+                    background-color: variables.$color-error;
+                }
+
             }
         }
     }
@@ -72,8 +110,8 @@
     .actions-section {
         margin-top: 2.5rem;
         padding: 2rem;
-        background-color: #f9f9f9;
         border-radius: variables.$radius-md;
+        width: 60%;
 
         .btn-edit,
         .btn-fav,

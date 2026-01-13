@@ -1,6 +1,7 @@
 import '../styles/Auth.scss';
 import { useAuth } from '../hooks/useAuth';
 import { NavPublic } from '../components/NavPublic';
+import loginImg from '../assets/images/login-house.jpg'
 
 //única función de esta pag Login: capturar datos del formulario y llamar a una función
 export const LoginPage = () => {
@@ -47,8 +48,8 @@ export const LoginPage = () => {
 
                     <div className="auth-image">
                         <img
-                            src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop"
-                            alt="Casa de vacaciones HouseApp"
+                            src={loginImg}
+                            alt="Login HouseApp - Foto Casa vacaciones"
                         />
                     </div>
 

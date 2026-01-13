@@ -6,6 +6,7 @@ import { useParams, useNavigate, Link, useLocation } from 'react-router';
 import { AuthContext } from '../../context/AuthContext'; // Para saber rol
 import { useUserHouses } from '../../hooks/useUserHouses';
 import { useFetch } from '../../hooks/useFetch';
+import { NavPublic } from '../../components/NavPublic';
 
 export const HouseDetailsPage = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ export const HouseDetailsPage = () => {
 
   // Construir URL dinámicamente usando .env
   const apiUrl = useMemo(() => {
-    const base = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
+    const base = import.meta.env.VITE_API_URL_BASE;
 
     if (pathname.includes('/admin/')) {
       return `${base}/admin/house/${id}`;
@@ -53,6 +54,8 @@ export const HouseDetailsPage = () => {
 
   return (
     <>
+      {/* Mostrar NavPublic SOLO si no hay usuario */}
+      {!user && <NavPublic />}
       <main className="house-details-page">
         <section className="gallery-section">
           {/*IMÁGENES DE LA CASA */}
@@ -76,10 +79,10 @@ export const HouseDetailsPage = () => {
           {/*INFO DE LA CASA */}
           <h3>Información de la vivienda: </h3>
           <div className="house-info">
-            <span>{house.ubicacion}</span>
-            <p>{house.descripcion}</p>
-            <p className="price">{house.precioNoche}€ / noche</p>
+            <span>Ubicación: {house.ubicacion}</span>
             <span className={`info ${house.estado}`}>{house.estado}</span>
+            <p>{house.descripcion}</p>
+            <p className="price">{house.precioNoche} € / noche</p>
           </div>
         </section>
 

@@ -1,16 +1,70 @@
-# React + Vite
+# HouseApp Client - Frontend React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el **frontend de la aplicación HouseApp**, una web app construída en React para interactuar con el backend de reservas de viviendas vacacionales. Permite a usuarios explorar casas, ver detalles, guardar favoritos, reservar y gestionar su perfil. El administrador puede gestionar las viviendas, las reservas y los usuarios.
 
-Currently, two official plugins are available:
+## Características principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Interfaz moderna y reactiva para exploración de viviendas.
+* **Autenticación** con tokens JWT guardados en **cookies** y manejo de roles (admin / user).
+* **Favoritos**: los usuarios pueden guardar casas que les interesan.
+* **Reservas**: permite a usuarios realizar reservas indicando fechas e invitados.
+* **Panel de administración**: gestión completa de casas, reservas y usuarios.
+* Integración con el backend via API REST.
 
-## React Compiler
+## Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **React**: Biblioteca principal para construir interfaces de usuario.
+* **React Router v6**: Para manejo de rutas.
+* **Vite**: Herramienta para crear y servir la app con desarrollo rápido.
+* **useFetch (custom)**: Para realizar llamadas a la API.
+* **Context API**: Para gestionar autenticación y estado global.
+* **Custom Hooks**: Para lógica reutilizable (fetch, auth, etc.)
+* **React Image Gallery**: Para mostrar galería de imágenes de forma elegante.
+* **SCSS**: Estilos modulares con Sass.
 
-## Expanding the ESLint configuration
+## Estructura del proyecto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+├── public/
+│ └── index.html
+├── src/
+│ ├── assets/
+│ ├── components/ # Componentes UI reutilizables
+│ ├── context/ # Context para Auth y estado global
+│ ├── hooks/ # Hooks personalizados
+│ ├── pages/ # Vistas principales (Home, Login, Perfil, Detalles...)
+│ ├── services/ # Configuración Axios / fetch helpers
+│ ├── styles/ # Archivos SCSS
+│ ├── App.jsx
+│ └── main.jsx
+├── .env # Variables de entorno
+├── package.json
+└── vite.config.js
+
+## Instalación y puesta en marcha
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/95sonia/client-houseapp.git
+   cd client-houseapp
+
+2. **Instalar dependencias:**
+    ```bash
+    yarn install
+
+3. **Configurar variables de entorno:**
+
+Esta variable indica la URL base donde está desplegado tu backend.
+En desarrollo puedes usar http://localhost:4001 o el puerto configurado en tu backend.
+    ```bash
+    VITE_API_URL_BASE=
+
+4. **Ejecutar la app en modo desarrollo:**
+    ```bash
+    yarn dev
+
+La aplicación estará disponible por defecto en: 
+    ```bash
+    http://localhost:5173
+
+Desarrollado por Sonia N.M. - Enero 2026
+

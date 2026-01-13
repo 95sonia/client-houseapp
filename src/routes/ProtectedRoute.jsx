@@ -23,6 +23,6 @@
     };
 
     //------------ACLARACIÓN sobre el token------------:
-    //Con cookies HttpOnly, el token no se guarda en una variable del front. La prueba de que el token existe es que el obj user no es null. 
+    //Con cookies HttpOnly, el token no se guarda en el front. La prueba de que el token existe es que el obj user no es null. 
     //Si el token de la cookie fuera falso o hubiera expirado, la función revalidarToken habría puesto el user en null
     //el Frontend no ve el token (por seguridad, para evitar ataques XSS), pero sabe que usuario está autenticado porque el obj user tiene datos
