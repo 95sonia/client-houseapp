@@ -4,7 +4,7 @@ Este es el **frontend de la aplicación HouseApp**, una web app construída en R
 
 ## Características principales
 
-* Interfaz moderna y reactiva para exploración de viviendas.
+* Interfaz para exploración de viviendas.
 * **Autenticación** con tokens JWT guardados en **cookies** y manejo de roles (admin / user).
 * **Favoritos**: los usuarios pueden guardar casas que les interesan.
 * **Reservas**: permite a usuarios realizar reservas indicando fechas e invitados.
@@ -22,24 +22,6 @@ Este es el **frontend de la aplicación HouseApp**, una web app construída en R
 * **React Image Gallery**: Para mostrar galería de imágenes de forma elegante.
 * **SCSS**: Estilos modulares con Sass.
 
-## Estructura del proyecto
-
-├── public/
-│ └── index.html
-├── src/
-│ ├── assets/
-│ ├── components/ # Componentes UI reutilizables
-│ ├── context/ # Context para Auth y estado global
-│ ├── hooks/ # Hooks personalizados
-│ ├── pages/ # Vistas principales (Home, Login, Perfil, Detalles...)
-│ ├── services/ # Configuración Axios / fetch helpers
-│ ├── styles/ # Archivos SCSS
-│ ├── App.jsx
-│ └── main.jsx
-├── .env # Variables de entorno
-├── package.json
-└── vite.config.js
-
 ## Instalación y puesta en marcha
 
 1. **Clonar el repositorio:**
@@ -53,8 +35,8 @@ Este es el **frontend de la aplicación HouseApp**, una web app construída en R
 
 3. **Configurar variables de entorno:**
 
-Esta variable indica la URL base donde está desplegado tu backend.
-En desarrollo puedes usar http://localhost:4001 o el puerto configurado en tu backend.
+    Esta variable indica la URL base donde está desplegado tu backend.
+    En desarrollo puedes usar http://localhost:4001 o el puerto configurado en tu backend.
     ```bash
     VITE_API_URL_BASE=
 
@@ -62,9 +44,7 @@ En desarrollo puedes usar http://localhost:4001 o el puerto configurado en tu ba
     ```bash
     yarn dev
 
-La aplicación estará disponible por defecto en: 
-    ```bash
-    http://localhost:5173
+La aplicación estará disponible por defecto en: http://localhost:5173
 
 Desarrollado por Sonia N.M. - Enero 2026
 

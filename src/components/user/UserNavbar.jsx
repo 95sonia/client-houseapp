@@ -16,7 +16,7 @@ export const UserNavbar = () => {
           <li><Link to="/user/dashboard"><Home size={20} /><span>Home</span></Link></li>
           <li><Link to="/user/favoritos"><Heart size={20} /><span>Favoritos</span></Link></li>
           <li><Link to="/user/reservas"><Calendar size={20} /><span> Mis Reservas</span></Link></li>
-          <li><Link to="/user/dashboard"><HandCoins size={20} /><span> Ofertas </span></Link></li>
+          {/*<li><Link to="/user/dashboard"><HandCoins size={20} /><span> Ofertas </span></Link></li>*/}
         </ul>
 
         <div className="nav-user-actions">

@@ -1,6 +1,6 @@
 @use 'variables';
 
-.admin-page {
+.admin-page-dashboard {
   background-color: variables.$bg-light;
   min-height: 100vh;
   padding: 2rem;
@@ -9,9 +9,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     margin-bottom: 2rem;
 
-    h2 {
+    h2,
+    p {
+      margin-top: 4%;
+      margin-bottom: 5%;
       font-size: 1.8rem;
       color: #1e293b;
     }
@@ -20,7 +24,7 @@
     .btn-main-add {
       text-decoration: none;
       background-color: variables.$color-menta;
-      color: variables.$color-negro; // Texto oscuro sobre fondo claro
+      color: variables.$color-negro;
       border: none;
       padding: 1rem 2rem;
       border-radius: variables.$radius-md;
@@ -34,7 +38,8 @@
 
       &:hover {
         transform: translateY(-2px);
-        background-color: #27e9bf;
+        background-color: #ffffff;
+        border: solid 2px variables.$color-menta;
       }
     }
   }
@@ -42,12 +47,13 @@
   // EL GRID DE CASAS
   .houses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); //min ocupa 300px  y max hasta ocupar el espacio disponible 1fr
     gap: 2rem;
   }
+
 }
 
-// LA TARJETA
+// --------LA TARJETA-----------------
 .house-item {
   background: white;
   border-radius: 15px;
@@ -94,6 +100,7 @@
 
   .house-info {
     padding: 1.5rem;
+    line-height: 140%;
 
     .info {
       display: inline-block;
@@ -103,9 +110,10 @@
       text-transform: uppercase;
       margin-bottom: 0.5rem;
 
-      // Colores específicos segun la palabra que venga de la BD
+      // Colores específicos segun la palabra RESERVADA O DISPONIBLE - > que venga de BD
       &.disponible {
-        background: #dcfce7;
+        background: variables.$color-green-light;
+        ;
       }
 
       &.reservada {
@@ -114,8 +122,9 @@
     }
 
     h3 {
-      margin-bottom: 0.5rem;
-      color: #1e293b;
+      margin-top: 0.5rem;
+      margin-bottom: 0.6rem;
+
     }
 
     .location {

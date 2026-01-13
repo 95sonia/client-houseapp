@@ -20,7 +20,7 @@
 
         // altura para que librería sepa dónde recortar
         .image-gallery-slide {
-            height: 400px; // Altura en desktop
+            height: 450px; // Altura en desktop
             background-color: #e2e8f0;
 
             img {
@@ -33,7 +33,7 @@
         // Miniaturas 
         .image-gallery-thumbnail {
             border-radius: variables.$radius-md;
-            overflow: hidden;
+
 
             img {
                 object-fit: cover;
@@ -52,11 +52,12 @@
     // INFO
     .info-wrapper {
         border-top: 1px solid #eee;
-        padding-top: 1.5rem;
+        padding-top: 1rem;
 
         h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
+            margin-top: 1rem;
         }
 
         p {
@@ -68,13 +69,12 @@
             display: flex;
             flex-direction: column;
             gap: 20%;
-            border-top: 1px solid #eee;
-            margin-top: 3%;
+            margin-top: 4%;
 
             span {
                 font-size: 1.2rem;
                 font-weight: bold;
-                line-height: 130%;
+                line-height: 135%;
                 margin-bottom: 4%;
             }
 
@@ -108,34 +108,39 @@
 
     // BOTONES
     .actions-section {
-        margin-top: 2.5rem;
-        padding: 2rem;
-        border-radius: variables.$radius-md;
-        width: 60%;
-
-        .btn-edit,
-        .btn-fav,
-        .btn-reserve {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            font-weight: bold;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-reserve {
-            background-color: variables.$color-menta;
-            color: variables.$color-negro;
-        }
-
-        .btn-edit {
-            background-color: variables.$color-negro;
-            color: white;
-        }
+        margin-top: 2rem;
+        width: 100%;
+        display: flex;
+      
     }
+
+    .actions-section>* {
+        flex: 1;
+    }
+
+    .btn-fav,
+    .btn-reserve,
+    .btn-edit {
+        padding: 1rem;
+        border-radius: variables.$radius-md;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .btn-fav {
+        color: variables.$color-negro;
+    }
+
+    .btn-reserve {
+        color: variables.$color-negro;
+    }
+
+    .btn-edit {
+        background: variables.$color-negro;
+        color: #fff;
+    }
+
 }

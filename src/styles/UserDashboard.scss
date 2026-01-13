@@ -105,13 +105,13 @@
             }
 
             &.active {
-                color: #ff4b5c; 
+                color: variables.$color-red-darken; 
                 background: white;
 
                 svg {
                     // Rellena el icono de Lucide
-                    fill: #ff4b5c !important; // Relleno
-                    stroke: #ff4b5c; // Borde 
+                    fill: variables.$color-red-darken; // Relleno
+                    stroke: variables.$color-red-darken; // Borde 
                 }
             }
         }

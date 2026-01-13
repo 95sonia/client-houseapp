@@ -1,11 +1,21 @@
 import { useState, useEffect } from "react";
 import { AuthContext } from "./AuthContext";
-const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
+const apiUrl = import.meta.env.VITE_API_URL_BASE;
 
-//crear el Proveedor. Su funcion: dar información -> aqui se exponen los datos que queremos compartir a los consumers
-//La información que quiero pasar a los hijos es el ususario y el rol - para que me permita entrar a ciertas pags
-// (Contexto): Guarda al usuario en su "memoria" (state) para que el Navbar sepa quién eres.
-
+/**
+ * Proveedor de Autenticación de la aplicación.
+ *
+ * Este contexto se encarga de:
+ * - Mantener el estado del usuario autenticado.
+ * - Revalidar la sesión al recargar la aplicación (persistencia de login).
+ * - Exponer funciones de login y logout a los componentes consumidores.
+ * Permite controlar el acceso a determinadas páginas en función del rol del usuario.
+ *
+ * @component
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Componentes hijos que tendrán acceso al contexto.
+ * @returns {JSX.Element} Proveedor del contexto de autenticación.
+ */
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState(null);

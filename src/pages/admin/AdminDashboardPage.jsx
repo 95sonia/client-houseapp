@@ -29,14 +29,15 @@ export const AdminDashboardPage = () => {
     if (loading) return <div className="loading">Cargando la lista de viviendas...</div>;
 
     return (
-        <div className="admin-page">
+        <div className="admin-page-dashboard">
             <AdminNavbar />
 
             <div className="admin-container">
                 {/* Cabecera  */}
                 <header className="dashboard-header">
                     <div className="house-number-info">
-                        <h2>Hay {houses.length} viviendas registradas</h2>
+                        <h2>Bienvenido al Admin Dashboard</h2>
+                        <p>Hay {houses.length} viviendas registradas</p>
                     </div>
 
                     <Link to="/admin/createHouse" className="btn-main-add">

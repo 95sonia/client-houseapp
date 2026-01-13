@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 import { useFetch } from '../../hooks/useFetch';
 //import '../../styles/ReservarCasaPage.scss';
 
-const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
+const apiUrl = import.meta.env.VITE_API_URL_BASE;
 
 export const ReservarCasaPage = () => {
     // Obtener ID de la URL

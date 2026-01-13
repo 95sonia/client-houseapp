@@ -36,9 +36,6 @@ export const EditHousePage = () => {
                 </header>
 
                 <main className="form-content">
-                    {loading &&  (
-                        <p>Guardando cambios...</p>
-                    ) }
                         <HouseForm
                             initialData={houseToEdit} // Aquí pasamos los datos viejos
                             onSubmit={handleEditar}
