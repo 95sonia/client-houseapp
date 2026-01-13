@@ -1,3 +1,4 @@
+import '../../styles/Auth.scss'
 import { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { toast } from 'react-hot-toast';
@@ -23,12 +24,12 @@ export const ReservaForm = ({ houseId }) => {
     const exito = await consultaFetch(`${apiUrl}/user/reservar/${houseId}`, 'POST', reserva);
 
     if (exito) {
-      toast.success('¡Reserva enviada! Recibirá la confirmación en menos de 24 horas. El pago se realiza en el alojamiento');
+      toast.success('¡Reserva enviada! Respuesta en menos de 24 horas. El pago se realiza en el alojamiento');
     }
   };
 
   return (
-    <form className="ReservaForm" onSubmit={handleSubmit}>
+    <form className="authForm" onSubmit={handleSubmit}>
       <div className="input-group">
         <label>Fecha de entrada</label>
         <input type="date" name="fechaEntrada" onChange={handleChange} required />
@@ -44,10 +45,13 @@ export const ReservaForm = ({ houseId }) => {
         <input type="number" name="numeroHuespedes" min="1" value={reserva.numeroHuespedes} onChange={handleChange} required />
       </div>
 
+      <p className="price-info"> Una vez enviado el formulario, la reserva será confirmada en menos de 24 horas. El pago se realiza en el alojamiento. </p>
+
       {/* Mostramos el error del backend  */}
-      {error && <p className="error-msg">{error}</p>}
-      
+      {error && <p className="error-msg">{error}</p>}  
+
       <button type="submit" className="btn-confirmar">Confirmar Reserva</button>
     </form>
+
   );
 };

@@ -67,7 +67,7 @@ export const HouseDetailsPage = () => {
               slideDuration={450} //duración miliseg de la transición
               thumbnailPosition="bottom" // bottom para ver miniaturas debajo
               showIndex={true} // muestra "1 de 5" por ej
-              originalClass="featured-image"  // imágenes se ajusten al ancho del contenedor
+              originalClass="featured-image"  // imgs se ajusten al ancho del contenedor
             />
           </div>
         </section >

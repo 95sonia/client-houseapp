@@ -1,3 +1,4 @@
+import '../../styles/Auth.scss'
 import React from 'react'
 import { ReservaForm } from '../../components/user/ReservaForm'
 import { useParams } from 'react-router';
@@ -17,14 +18,16 @@ export const ReservarCasaPage = () => {
     if (loading) return <p className="loading">Cargando datos de la vivienda...</p>;
 
     return (
-        <main className="reserva-page">
-            <div className="reserva-card">
+        <main className="reservar-casa-wrapper">
+            <div className="auth-card">
                 <header className="reserva-header">
-                    <h1>Reserva en <span>{house?.titulo}</span></h1>
+                    <h1>Reserva tu estancia en <span>{house?.titulo} </span></h1>
                     <p className="price-info">Precio por noche: {house?.precioNoche} €</p>
                 </header>
+                <section className="auth-content">
                 {/*pasar id casa al Formulario para que sepa a qué URL disparar el POST*/}
                 <ReservaForm houseId={id} />
+                </section>
             </div>
         </main>
     );

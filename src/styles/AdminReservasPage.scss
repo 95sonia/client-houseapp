@@ -8,12 +8,15 @@
     .admin-header {
         margin-bottom: 30px;
 
-        h1 span {
-            color: #26f0c5;
+        h1 {
+            margin-bottom: 30px;
+
+            span {
+                color: variables.$color-menta
+            }
         }
 
         p {
-            color: #888;
             font-size: 0.9rem;
         }
     }
@@ -34,7 +37,6 @@
             margin-bottom: 8px;
 
             span {
-                color: #999;
                 margin-left: 5px;
             }
         }

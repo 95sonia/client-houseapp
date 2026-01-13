@@ -1,0 +1,113 @@
+@use 'variables';
+
+.admin-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+
+    h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 30px;
+        padding-left: 15px;
+
+        span {
+            color: variables.$color-menta
+        }
+    }
+
+    .admin-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+        thead {
+            background-color: #f8f9fa;
+
+            th {
+                padding: 18px;
+                text-align: left;
+                font-size: 0.9rem;
+                font-weight: 700;
+                color: #666;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                border-bottom: 2px solid #eee;
+            }
+        }
+
+        tbody {
+            tr {
+                &:hover {
+                    background-color: #f0fdfa; // Un toque turquesa muy suave al pasar el ratón
+                }
+
+                &:last-child td {
+                    border-bottom: none;
+                }
+            }
+
+            td {
+                padding: 16px 18px;
+                vertical-align: middle;
+                color: #444;
+                border-bottom: 1px solid #f2f2f2;
+                font-size: 0.95rem;
+
+                // Estilo para badges de rol
+                .badge {
+                    padding: 4px 12px;
+                    border-radius: 20px;
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+
+                    &.admin {
+                        background-color: variables.$color-menta;
+                    }
+
+                    &.user {
+                        background-color: #f1f3f5;
+                        color: #495057;
+                    }
+                }
+
+                // Botones acciones
+                button {
+                    background: none;
+                    border: none;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    margin-right: 10px;
+                    transition: transform 0.2s;
+                    padding: 5px;
+                    border-radius: 6px;
+
+                    &:hover {
+                        transform: scale(1.2);
+                        background-color: #eee;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 0 10px;
+
+        .admin-table {
+            display: block;
+            overflow-x: auto;
+        }
+    }
+}

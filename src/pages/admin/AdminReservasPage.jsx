@@ -3,7 +3,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { toast } from 'react-hot-toast';
 import '../../styles/AdminReservasPage.scss';
 
-const apiUrl = import.meta.env.VITE_API_URL_BASE || 'https://server-houseapp.onrender.com';
+const apiUrl = import.meta.env.VITE_API_URL_BASE;
 
 export const AdminReservasPage = () => {
   // 1. Usamos la ruta /admin/reservas (ajustar según tu prefijo de router)
@@ -42,13 +42,14 @@ export const AdminReservasPage = () => {
             <article key={res._id} className="admin-card">
               <div className="card-info">
                 <div className="user-details">
-                  <strong>Cliente:</strong> {res.usuario?.nombre} 
+                  <strong>Cliente:</strong> {res.usuario?.nombre}
                   <span> | Email: {res.usuario?.email} | Tlfno: {res.usuario?.telefono} </span>
                 </div>
                 <h2>{res.vivienda?.titulo}</h2>
-                <p className="location">{res.vivienda?.ubicacion}</p>
+                <p className="location">Ubicación: {res.vivienda?.ubicacion}</p>
                 <div className="dates">
                   <span>Fecha: {new Date(res.fechaEntrada).toLocaleDateString()}</span>
+                  {/*método JS que convierte obj de fecha en cadena de texto legible, adaptándose a idioma y formato del país del usuario */}
                   <span> hasta </span>
                   <span>{new Date(res.fechaSalida).toLocaleDateString()}</span>
                 </div>
